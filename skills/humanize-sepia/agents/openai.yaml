@@ -1,4 +1,4 @@
 interface:
   display_name: "Humanize Sepia"
-  short_description: "쓰고 싶은 내용을 한국어 글로 정리하고, 문장과 흐름을 다듬습니다"
-  default_prompt: "$humanize-sepia 아래 내용으로 글을 써주거나 초안을 다듬어줘. 누구에게 어떤 말을 전하려는지 살펴보고, 사실과 말투를 유지해줘. 문항과 글자 수 등 요청한 조건도 맞춰줘."
+  short_description: "쓰고 싶은 내용으로 한국어 글을 쓰고, 초안의 문장과 흐름을 다듬습니다"
+  default_prompt: "$humanize-sepia 전하려는 말과 읽을 사람을 고려해 아래 내용으로 글을 쓰거나 초안을 다듬고, 사실·말투·분량 등 요청한 조건을 지켜줘."
