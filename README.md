@@ -48,20 +48,20 @@ The company and experience below are fictional examples.
 ```text
 $humanize-sepia
 
-온라인 장터의 운영 직무에 지원하는 자기소개서를 쓰고 싶어.
-회사는 소규모 판매자를 돕고, 이 직무는 판매자 문의를 처리하고
-반복되는 불편을 개선하는 일을 해. 문항은 “익숙한 방식에서
-벗어나 문제를 해결한 경험을 설명해 주세요.”야.
+소규모 판매자들이 이용하는 온라인 장터의 운영 직무에 지원하려고 해.
+판매자 문의에 답하고, 자주 생기는 불편을 찾아 개선하는 일이래.
+자소서에서는 익숙한 방식에서 벗어나 문제를 해결한 경험을 묻고 있어.
 
-매장에서 알바할 때 담당자마다 답이 달라 손님이 다시 묻곤 했어.
-나는 자주 오는 문의를 모아 답변표 초안을 만들었고, 매니저가
-확인한 뒤 교대자들이 함께 쓰기 시작했어. 교대자가 답을 찾기
-편해졌다고 했지만, 재문의 건수는 측정하지 않았어.
+매장에서 아르바이트할 때, 직원마다 안내가 달라서 손님이 같은 질문을
+다시 하는 일이 있었어. 자주 들어오는 질문과 답을 표로 정리했고,
+매니저가 확인한 뒤 교대 근무하는 동료들과 함께 쓰기 시작했어.
+동료들은 답을 찾기 편해졌다고 했어. 같은 질문이 얼마나 줄었는지는
+따로 세어 보지 않았고.
 
-문제를 응대 속도보다 답변의 일관성에서 본 점을 드러내고 싶어.
-초안에 쓴 “남다른 관찰력”, “혁신적인 개선” 같은 말보다는
-실제로 한 일로 설득해 줘. 과장 없이 담담하게, 공백 포함
-500자 이내로 써줘. 회사 슬로건은 억지로 넣지 말아줘.
+직원마다 안내가 달랐다는 점에 주목하고 해결한 경험을 쓰고 싶어.
+초안에는 “남다른 관찰력으로 혁신적인 개선을 이루었다”고 썼는데,
+좀 거창하게 느껴져. 내가 한 일이 잘 드러나도록 자연스럽게 써줘.
+공백 포함 500자 이내로, 담담한 말투면 좋겠어.
 ```
 
 A draft can be a starting point for further writing. The skill keeps useful wording and voice, develops the piece around your intended message, and follows the scope you set. When a missing detail would change the argument or a material fact, it asks a focused question.
@@ -69,14 +69,20 @@ A draft can be a starting point for further writing. The skill keeps useful word
 To work on an existing text, specify the scope:
 
 ```text
-$humanize-sepia 원문을 최소한으로 다듬어줘. 수치와 직접 인용은 유지해줘.
-원문: …
+$humanize-sepia 내용과 말투는 그대로 두고, 어색한 문장만 다듬어줘.
+숫자와 인용문은 바꾸지 말아줘.
+글: …
+```
 
-$humanize-sepia 진단만 해줘. 실제 문제와 선택 가능한 개선을 구분해줘.
-원문: …
+```text
+$humanize-sepia 글은 고치지 말고, 어디가 어색하거나 부족한지 알려줘.
+글: …
+```
 
-$humanize-sepia 사실과 핵심 메시지를 유지하면서 전면 개작해줘.
-원문: …
+```text
+$humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
+글의 구성부터 새로 잡아서 처음부터 다시 써줘.
+글: …
 ```
 
 The default result starts with the text, followed by material reasons for changes or information to confirm. Your requested format takes priority. The author remains responsible for checking factual claims; AI-detector results are not a measure of completion.
