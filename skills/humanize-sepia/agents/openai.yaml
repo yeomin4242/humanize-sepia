@@ -1,4 +1,4 @@
 interface:
   display_name: "Humanize Sepia"
-  short_description: "뒤섞인 자료와 작성 의도를 읽고 문항의 목적에 맞는 한국어 글을 만듭니다"
-  default_prompt: "$humanize-sepia 아래 기업 정보·문항·방향·초안에서 원하는 바를 파악해 글을 써주거나 다듬어줘. 문항이 확인하려는 핵심에 답하고, 사실·말투·명시한 제약을 지켜줘."
+  short_description: "작성 의도를 살려 한국어 글을 쓰고, 기존 글을 다듬고 진단합니다"
+  default_prompt: "$humanize-sepia 전달하려는 메시지와 독자를 파악해 아래 자료로 글을 써주거나 초안을 다듬어줘. 사실과 말투를 살리고, 문항이 있으면 평가 목적과 명시한 제약에 맞춰줘."
