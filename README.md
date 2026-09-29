@@ -17,7 +17,7 @@ Version: **0.2.0**. The skill's instructions and examples are primarily Korean. 
 
 Use `$humanize-sepia` and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique.
 
-The skill starts with what you want to say and who will read it. It chooses what belongs in the piece and explains the relationships between the relevant facts. Rather than listing activities, it connects the problem, your actions, and what you learned. It combines or removes passages that repeat the same point. If you ask to compare approaches, it can write alternatives with different content choices or explanatory order. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
+The skill starts with what you want to say and who will read it. It chooses what belongs in the piece and explains the relationships between the relevant facts. Rather than listing activities, it connects the problem, your actions, and what you learned. It combines or removes passages that repeat the same point. When emphasis or explanatory order could change how the piece reads, it writes complete alternatives and compares them. It can select one or use their relevant strengths to write a coherent new version, keeping the earlier text when rewriting does not help. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
 
 For job application essays, it considers the company and role to understand what the question is trying to assess. A question about a “different perspective” may call for showing what you noticed about a problem and why you chose a particular approach. The essay must also meet the stated length limit, number of examples, and required parts of the question.
 
@@ -92,7 +92,7 @@ You can follow up with a request such as “make only the second paragraph short
 
 ## Use edits you liked
 
-Share an edit you accepted or a piece you like, along with what made it work for you. The skill considers the actual change and your reason, then applies relevant choices to the current piece. For example, you might prefer showing what you changed before naming a personal strength. Facts and experiences from reference pieces stay separate from the new material.
+Share an edit you accepted or a piece you like, along with what made it work for you. An expression you rejected alongside the version you accepted can help show what to emphasize or leave out. The skill considers the actual change and your reason, then applies relevant choices to the current piece. For example, you might prefer showing what you changed before naming a personal strength. Facts and experiences from reference pieces stay separate from the new material.
 
 You can use the skill without reference writing. Your current request takes priority over past preferences. To reuse choices in another conversation, provide the examples or a record file again. Installing the skill does not automatically save editing history. You can ask it to prepare a reusable record at a location you specify.
 
@@ -113,6 +113,8 @@ It checks whether a criticism is valid before applying it. For example, feedback
 
 You can include feedback you have already received. The skill connects it to a particular passage, the reader's difficulty, and an actual revision. Broad comments such as “make it more impressive” do not justify rewriting the whole piece. Even a text without factual errors can benefit from clearer emphasis or connections; the skill can compare an alternative and retain the original when the change does not help. A request for review alone returns feedback without edits, distinguishing problems from optional suggestions.
 
+When you allow changes to the structure, it can compare complete versions with different evidence choices or explanatory order. It uses only the strengths relevant to your main point when rewriting, then compares the result with the original. Wording-only edits stay within the requested scope. If you ask to see two alternatives, it returns both rather than merging them into one.
+
 If the environment supports a separate reviewer, you can ask for a reader's critique in a fresh context. The reviewer receives the request, source material, and draft rather than the writer's self-assessment. Reviewing in the same context and simulating a reader with AI are distinguished from an actual reader's evaluation.
 
 After revision, it checks both whether the identified problem is resolved and whether important content, facts, and voice remain intact. It accepts useful changes, repairs individual changes that went wrong, and returns to the previous verified draft if the piece became worse overall.
@@ -130,6 +132,7 @@ skills/humanize-sepia/
   references/
     editing.md
     drafting.md
+    candidates.md
     writing-examples.md
     preferences.md
     applications.md
