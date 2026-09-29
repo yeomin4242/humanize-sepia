@@ -17,11 +17,11 @@ Version: **0.2.0**. The skill's instructions and examples are primarily Korean. 
 
 Use `$humanize-sepia` and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique.
 
-The skill starts with what you want to say and who will read it. It chooses a message supported by your material, then explains how the relevant actions and details support that message. When several directions fit, it can compare brief outlines before writing. Its writing examples illustrate the difference between listing events and explaining their significance. It then improves the wording and flow while keeping the level of formality appropriate for the piece.
+The skill starts with what you want to say and who will read it. It chooses a message supported by your material, then explains how the relevant actions and details support that message. When different directions compete, it can compare brief outlines. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
 
 For job application essays, it considers the company and role to understand what the question is trying to assess. A question about a “different perspective” may call for showing what you noticed about a problem and why you chose a particular approach. The essay must also meet the stated length limit, number of examples, and required parts of the question.
 
-It grounds the qualities you want to show in your actual experience. It keeps your actions distinct from other people's approval and the team's results. If essential facts are missing, it asks only what it needs or drafts from the confirmed information, with a note outside the essay explaining what still needs work.
+It grounds the qualities you want to show in your actual experience. It keeps your actions distinct from other people's approval and the team's results. If essential facts are missing, it asks a focused question or drafts from confirmed information. It can also ask about a decision that would make your account more meaningful, such as why you chose an approach. Requests to write immediately or return only the text take priority, and questions stay outside the essay.
 
 ## Install for Codex
 
@@ -67,7 +67,7 @@ $humanize-sepia
 공백 포함 500자 이내로, 담담한 말투면 좋겠어.
 ```
 
-A draft can be a starting point for further writing. The skill keeps useful wording and voice, develops the piece around your intended message, and follows the scope you set. When a missing detail would change the meaning or an important fact, it asks a focused question.
+A draft can be a starting point for further writing. The skill keeps useful wording and voice, develops the piece around your intended message, and follows the scope you set. To explore your material first, ask it to start with one question that would help explain your judgment.
 
 To work on an existing text, specify the scope:
 
@@ -90,6 +90,12 @@ $humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
 
 You can follow up with a request such as “make only the second paragraph shorter.” The skill uses the latest text, revises the requested passage, and keeps the rest unchanged.
 
+## Use edits you liked
+
+Share an edit you accepted or a piece you like, along with what made it work for you. The skill considers the actual change and your reason, then applies relevant choices to the current piece. For example, you might prefer showing what you changed before naming a personal strength. Facts and experiences from reference pieces stay separate from the new material.
+
+You can use the skill without reference writing. Your current request takes priority over past preferences. To reuse choices in another conversation, provide the examples or a record file again. Installing the skill does not automatically save editing history. You can ask it to prepare a reusable record at a location you specify.
+
 ## Improve through critique
 
 Ask for an adversarial pass when you want an existing text examined and improved. The skill reads as a skeptical reader: does the text answer the question, do the actions and evidence support its claims, and do the explanations hold together? It addresses supported findings using the available material, then checks whether the revision resolves them.
@@ -104,6 +110,10 @@ $humanize-sepia 아래 글을 독자의 입장에서 비판적으로 검토하�
 ```
 
 It checks whether a criticism is valid before applying it. For example, feedback that “the result needs numbers” is checked against what the question actually requires. If a confirmed response from colleagues is sufficient, it uses that evidence rather than inventing an unmeasured result.
+
+You can include feedback you have already received. The skill connects the feedback to the passage and the understanding it needs to improve, then revises the relevant part. Broad comments such as “make it more impressive” do not justify rewriting the whole piece. It separates substantive problems from optional wording preferences and keeps text that works.
+
+If the environment supports a separate reviewer, you can ask for a reader's critique in a fresh context. The reviewer receives the request, source material, and draft rather than the writer's self-assessment. Reviewing in the same context and simulating a reader with AI are distinguished from an actual reader's evaluation.
 
 After revision, it checks both whether the identified problem is resolved and whether important content, facts, and voice remain intact. It accepts useful changes, repairs individual changes that went wrong, and returns to the previous verified draft if the piece became worse overall.
 
@@ -121,6 +131,7 @@ skills/humanize-sepia/
     editing.md
     drafting.md
     writing-examples.md
+    preferences.md
     applications.md
     improving.md
   LICENSE
