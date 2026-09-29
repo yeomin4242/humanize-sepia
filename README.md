@@ -92,9 +92,11 @@ You can follow up with a request such as “make only the second paragraph short
 
 ## Use edits you liked
 
-Share an edit you accepted or a piece you like, along with what made it work for you. An expression you rejected alongside the version you accepted can help show what to emphasize or leave out. The skill considers the actual change and your reason, then applies relevant choices to the current piece. For example, you might prefer showing what you changed before naming a personal strength. Facts and experiences from reference pieces stay separate from the new material.
+Share an edit you accepted or a piece you like, along with what made it work for you. An expression you rejected alongside the version you accepted can help show what to emphasize or leave out. The skill turns the actual change and your reason into a few brief criteria relevant to the current piece. For example, you might prefer showing what you changed before naming a personal strength. When useful, it consults one relevant passage. Facts and experiences from reference pieces stay separate from the new material.
 
-You can use the skill without reference writing. Your current request takes priority over past preferences. To reuse choices in another conversation, provide the examples or a record file again. Installing the skill does not automatically save editing history. You can ask it to prepare a reusable record at a location you specify.
+Ask it to summarize an accepted edit and your reason if you want to use them again. The record covers the audience and purpose, a writing criterion, the passage and reason supporting it, and when it applies. Specify a location if you want a file. For later writing, it uses the relevant criteria without reprocessing your entire history.
+
+You can use the skill without reference writing. Your current request takes priority over past preferences. To reuse choices in another conversation, provide the record file or relevant content again. Installing the skill does not automatically save editing history or learn your preferences. Matching your voice and making the content persuasive are checked separately.
 
 ## Improve through critique
 
@@ -140,8 +142,13 @@ skills/humanize-sepia/
   LICENSE
 README.md
 README.ko.md
+EVALUATION.md
 LICENSE
 ```
+
+## Comparison testing
+
+A writing-quality advantage over using no skill has not been established. Fact preservation and editing scope, how well a piece communicates, and input usage and writing time are assessed separately. Comparisons include free-form notes and clearly organized requests, with the same materials provided to every condition. Actual human choices, AI judgments, and functional tests with fictional preferences are reported separately. See [evaluation methods and evidence limits](EVALUATION.md).
 
 ## Inspired by
 
