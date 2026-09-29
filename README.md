@@ -8,12 +8,13 @@ Version: **0.1.0**. The skill's instructions and examples are primarily Korean. 
 
 ## What it does
 
-| Mode | Use |
+| Task | Use |
 |---|---|
-| `write` | Write a complete draft from your ideas, experiences, or notes. |
-| `refactor` | Improve the wording while keeping the content, voice, and order of events. |
-| `review` | Point out unclear or weak passages without changing the text. |
-| `recreate` | Start again with a new structure when explicitly asked, keeping the facts and intended message. |
+| `write` | Turn your experiences, notes, or rough draft into a complete piece. |
+| `edit` | Improve the wording and flow within the scope you request. |
+| `improve` | Challenge weak claims, evidence, and prompt coverage; revise and check the result. |
+
+Use `$humanize-sepia` and describe what you need. You do not need to memorize task names or install a separate skill for each task. Requests such as “review only,” “change only the wording,” and “start again with a new structure” set the output and editing scope.
 
 The skill starts with what you want to say and who will read it. It chooses relevant details and connects them so the reader can follow your thinking. It then improves the wording and flow while keeping the level of formality appropriate for the piece.
 
@@ -88,6 +89,21 @@ $humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
 
 You can follow up with a request such as “make only the second paragraph shorter.” The skill uses the latest text, revises the requested passage, and keeps the rest unchanged.
 
+## Improve through critique
+
+Ask for an adversarial pass when you want an existing text examined and improved. The skill reads as a skeptical reader: does the text answer the question, do the actions and evidence support its claims, and do the explanations hold together? It addresses supported findings using the available material, then checks whether the revision resolves them.
+
+```text
+$humanize-sepia 아래 글을 독자의 입장에서 비판적으로 검토하고 고쳐줘.
+내가 전하려는 말이 잘 드러나는지, 주장에 근거가 충분한지,
+앞뒤 설명이 어긋나지 않는지 먼저 살펴봐.
+수정한 뒤 지적한 문제가 해결됐는지 다시 확인해줘.
+사실과 말투는 유지해줘.
+글: …
+```
+
+The default is one critique, revision, and verification pass. It repeats only when a significant, fixable problem remains, with up to three revision passes unless you request otherwise. Good text can stay unchanged. Missing facts are never invented. If progress stops or an essential fact needs your input, the skill explains the gap and stops. The number of passes is not a measure of quality.
+
 The result starts with the text, followed by brief notes on important changes or facts to confirm. Your requested format takes priority. Check the final text against your actual experience and numbers. AI-detector scores are not a measure of writing quality.
 
 ## Repository
@@ -100,6 +116,7 @@ skills/humanize-sepia/
     editing.md
     drafting.md
     applications.md
+    improving.md
   LICENSE
 README.md
 README.ko.md
