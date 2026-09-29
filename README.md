@@ -17,7 +17,7 @@ Version: **0.2.0**. The skill's instructions and examples are primarily Korean. 
 
 Use `$humanize-sepia` and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique.
 
-The skill starts with what you want to say and who will read it. It chooses a message supported by your material, then explains how the relevant actions and details support that message. When different directions compete, it can compare brief outlines. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
+The skill starts with what you want to say and who will read it. It chooses what belongs in the piece and explains the relationships between the relevant facts. Rather than listing activities, it connects the problem, your actions, and what you learned. It combines or removes passages that repeat the same point. If you ask to compare approaches, it can write alternatives with different content choices or explanatory order. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
 
 For job application essays, it considers the company and role to understand what the question is trying to assess. A question about a “different perspective” may call for showing what you noticed about a problem and why you chose a particular approach. The essay must also meet the stated length limit, number of examples, and required parts of the question.
 
@@ -98,7 +98,7 @@ You can use the skill without reference writing. Your current request takes prio
 
 ## Improve through critique
 
-Ask for an adversarial pass when you want an existing text examined and improved. The skill reads as a skeptical reader: does the text answer the question, do the actions and evidence support its claims, and do the explanations hold together? It addresses supported findings using the available material, then checks whether the revision resolves them.
+Ask for an adversarial pass when you want an existing text examined and improved. The skill reads as a skeptical reader: does the text answer the question, do the actions and evidence support its claims, and do the explanations hold together? It starts with the passages where changes would help most, writes actual deletions, combinations, or replacement sentences, and compares them with the original. It then checks whether the revision resolved the identified issues.
 
 ```text
 $humanize-sepia 아래 글을 독자의 입장에서 비판적으로 검토하고 고쳐줘.
@@ -111,7 +111,7 @@ $humanize-sepia 아래 글을 독자의 입장에서 비판적으로 검토하�
 
 It checks whether a criticism is valid before applying it. For example, feedback that “the result needs numbers” is checked against what the question actually requires. If a confirmed response from colleagues is sufficient, it uses that evidence rather than inventing an unmeasured result.
 
-You can include feedback you have already received. The skill connects the feedback to the passage and the understanding it needs to improve, then revises the relevant part. Broad comments such as “make it more impressive” do not justify rewriting the whole piece. It separates substantive problems from optional wording preferences and keeps text that works.
+You can include feedback you have already received. The skill connects it to a particular passage, the reader's difficulty, and an actual revision. Broad comments such as “make it more impressive” do not justify rewriting the whole piece. Even a text without factual errors can benefit from clearer emphasis or connections; the skill can compare an alternative and retain the original when the change does not help. A request for review alone returns feedback without edits, distinguishing problems from optional suggestions.
 
 If the environment supports a separate reviewer, you can ask for a reader's critique in a fresh context. The reviewer receives the request, source material, and draft rather than the writer's self-assessment. Reviewing in the same context and simulating a reader with AI are distinguished from an actual reader's evaluation.
 
