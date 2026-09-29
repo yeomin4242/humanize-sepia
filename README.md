@@ -17,7 +17,7 @@ Version: **0.2.0**. The skill's instructions and examples are primarily Korean. 
 
 Use `$humanize-sepia` and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique.
 
-The skill starts with what you want to say and who will read it. It chooses relevant details and connects them so the reader can follow your thinking. It then improves the wording and flow while keeping the level of formality appropriate for the piece.
+The skill starts with what you want to say and who will read it. It chooses a message supported by your material, then explains how the relevant actions and details support that message. When several directions fit, it can compare brief outlines before writing. Its writing examples illustrate the difference between listing events and explaining their significance. It then improves the wording and flow while keeping the level of formality appropriate for the piece.
 
 For job application essays, it considers the company and role to understand what the question is trying to assess. A question about a “different perspective” may call for showing what you noticed about a problem and why you chose a particular approach. The essay must also meet the stated length limit, number of examples, and required parts of the question.
 
@@ -120,6 +120,7 @@ skills/humanize-sepia/
   references/
     editing.md
     drafting.md
+    writing-examples.md
     applications.md
     improving.md
   LICENSE
