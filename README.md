@@ -4,17 +4,18 @@
 
 **Write clear, natural Korean that says what you mean.** Humanize Sepia helps you turn ideas and experiences into a complete piece, organize your thoughts, and refine a draft while preserving your facts and voice. Use it to write something new, improve an existing text, or find out what needs work.
 
-Version: **0.1.0**. The skill's instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
+Version: **0.2.0**. The skill's instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
 
 ## What it does
 
-| Task | Use |
+| What you need | Example request |
 |---|---|
-| `write` | Turn your experiences, notes, or rough draft into a complete piece. |
-| `edit` | Improve the wording and flow within the scope you request. |
-| `improve` | Challenge weak claims, evidence, and prompt coverage; revise and check the result. |
+| A complete piece from your material | “Use this experience and draft to write what I want to say.” |
+| An edited draft | “Keep my voice and improve only the wording,” or “reorganize the piece.” |
+| Feedback without edits | “Explain what needs work and why, without changing the text.” |
+| Improvement through critique | “Check the reasoning and evidence, revise what needs work, and verify the result.” |
 
-Use `$humanize-sepia` and describe what you need. You do not need to memorize task names or install a separate skill for each task. Requests such as “review only,” “change only the wording,” and “start again with a new structure” set the output and editing scope.
+Use `$humanize-sepia` and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique.
 
 The skill starts with what you want to say and who will read it. It chooses relevant details and connects them so the reader can follow your thinking. It then improves the wording and flow while keeping the level of formality appropriate for the piece.
 
@@ -102,7 +103,11 @@ $humanize-sepia 아래 글을 독자의 입장에서 비판적으로 검토하�
 글: …
 ```
 
-The default is one critique, revision, and verification pass. It repeats only when a significant, fixable problem remains, with up to three revision passes unless you request otherwise. Good text can stay unchanged. Missing facts are never invented. If progress stops or an essential fact needs your input, the skill explains the gap and stops. The number of passes is not a measure of quality.
+It checks whether a criticism is valid before applying it. For example, feedback that “the result needs numbers” is checked against what the question actually requires. If a confirmed response from colleagues is sufficient, it uses that evidence rather than inventing an unmeasured result.
+
+After revision, it checks both whether the identified problem is resolved and whether important content, facts, and voice remain intact. It accepts useful changes, repairs individual changes that went wrong, and returns to the previous verified draft if the piece became worse overall.
+
+The default is one critique, revision, and verification pass. It repeats only when a significant, fixable problem remains, with up to three revision passes unless you request otherwise. Good text can stay unchanged. If progress stops or an essential fact needs your input, it explains the gap and stops. Neither the number of passes nor a higher self-assigned score establishes writing quality.
 
 The result starts with the text, followed by brief notes on important changes or facts to confirm. Your requested format takes priority. Check the final text against your actual experience and numbers. AI-detector scores are not a measure of writing quality.
 
