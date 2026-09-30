@@ -4,6 +4,12 @@
 
 스킬 없이 쓴 글보다 더 잘 쓴다는 우위는 아직 확인하지 못했다. 기능을 지원한다는 것과 그 기능이 글의 품질을 높인다는 것은 별도로 확인한다.
 
+### 기본 지침의 입력량·시간 점검 — 2026-09-30
+
+기본 `SKILL.md`를 3,515바이트에서 2,825바이트로 줄였다(19.6%). 일상 작업의 핵심 기준과 일곱 참고 자료의 조건부 경로는 유지했다. 작문 2건·검토 1건·표현 윤문 1건에서 수정 전·후 지침을 같은 모델(`gpt-6-astra`, low), 같은 도구 읽기 방식으로 각각 한 번씩 실행했다. 네 사례 모두 스킬 파일을 한 번 읽고 추가 자료는 읽지 않았다.
+
+두 조건의 결과는 모두 지정 분량·출력 형식과 확인 가능한 사실을 지켰다. 작문·검토 결과의 실질적 품질 우위는 판별되지 않았고, 윤문 결과는 동일했다. 이는 소수 사례의 수동 점검이며 독립된 독자 선호 평가가 아니다. 누적 입력은 156,158→155,310토큰으로 848토큰(0.54%) 줄었다. 총 실행 시간은 117.05→101.88초였지만 중앙값은 26.75→27.68초였다. 캐시 입력량도 조건 간 달랐다. 따라서 시간이나 실제 청구 비용이 줄었다고 결론내릴 수 없다. 앞선 스킬 없음·스킬 사용 비교에서 확인된 도구 호출 비용은 이 축약으로 제거되지 않는다.
+
 ### 0.2.0 반영 점검 — 2026-09-29
 
 같은 모델(gpt-6-astra, low)로 새 가상 사례 6건을 스킬 없음·수정 전·개선본에서 각각 한 번 작성했다. 자유 입력 4건과 가상 선호 조건 2건이며, 실제 사람의 채택 자료는 사용하지 않았다. 과제별 보조 기준은 생성 전에 고정했고 익명 AI 판정은 두 순서로 수행했다.
@@ -48,6 +54,12 @@
 ## English
 
 A writing-quality advantage over using no skill has not been established. Supporting a behavior and improving the final writing are separate claims.
+
+### Entry instruction cost check — 2026-09-30
+
+The entry `SKILL.md` was shortened from 3,515 to 2,825 bytes (19.6%), retaining the core guidance and conditional routes to all seven references. Two drafting cases, one review, and one light edit were each run once before and after the change with the same model (`gpt-6-astra`, low) and the same tool-read procedure. Every run read its entry file once and no reference files.
+
+All outputs met the stated length, format, and factual constraints. No material writing-quality difference was established in the drafting or review pairs; the edit outputs were identical. This was a small manual check, not an independent reader-preference study. Cumulative input fell from 156,158 to 155,310 tokens (848 tokens, 0.54%). Total elapsed time fell from 117.05 to 101.88 seconds, while median time rose from 26.75 to 27.68 seconds. Cached input differed across conditions. These results do not establish lower latency or billed cost. Shortening the file does not remove the tool-read overhead seen in earlier no-skill comparisons.
 
 ### 0.2.0 update check — 2026-09-29
 
