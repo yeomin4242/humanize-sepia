@@ -1,3 +1,10 @@
 .DS_Store
 __pycache__/
 *.py[cod]
+
+# Keep evaluation work local.
+/EVALUATION.md
+/REPORT.md
+/eval/
+/benchmarks/
+/work/
