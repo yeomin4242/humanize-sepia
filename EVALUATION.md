@@ -4,6 +4,12 @@
 
 스킬 없이 쓴 글보다 더 잘 쓴다는 우위는 아직 확인하지 못했다. 기능을 지원한다는 것과 그 기능이 글의 품질을 높인다는 것은 별도로 확인한다.
 
+### Astra low 실행 시간 재측정 — 2026-09-30
+
+0.2.1 설치본을 고정하고 기존 속도 비교에 쓰지 않은 6개 사례(작문 3·검토 2·윤문 1)를 `gpt-6-astra` low에서 조건별 두 번씩 새 문맥으로 실행했다. CLI 호출의 벽시계 시간 중앙값은 일반 스킬 파일 읽기 **24.69초**, 동일한 전체 지침의 첫 메시지 제공 **13.06초**, README의 빠른 요청문 **13.51초**였다. 같은 사례·반복 번호에서 두 직접 제공 방식은 각각 **12/12회** 일반 스킬보다 빨랐다. 누적 입력은 차례로 460,976·185,270·169,694토큰이었고 파일 읽기는 12·0·0회였다. 전체 지침 직접 제공과 짧은 요청문 사이의 속도 우위는 확인되지 않았다.
+
+세 조건 모두 12/12회 분량을 지키고 구체적인 행동·성과를 지어내지 않았다. 다만 자료가 부족한 고객 불편 작문 C03에서 필요한 추가 확인사항을 본문 밖에 적은 비율은 일반 스킬과 빠른 요청문이 각각 1/2, 전체 지침 직접 제공이 0/2였다. 이 품질 약점과 소수 사례·캐시·동시 실행의 영향을 감안해야 한다. 결과는 **도구 읽기 없는 경로의 이 CLI 환경에서의 시간 차이**이며, 표준 `$humanize-sepia` 호출이나 실제 앱의 보편적인 속도 개선을 뜻하지 않는다.
+
 ### 0.2.1 실행 시간 점검 — 2026-09-30
 
 같은 0.2.0 지침을 읽는 조건에서 `gpt-6-astra` low와 `gpt-5.6-luna` low를 작문 4건·검토 1건·윤문 1건으로 비교했다. `gpt-6-luna`는 이 계정의 Codex CLI에서 지원되지 않아 실제 비교에 쓰지 못했다. 중앙값은 Astra 27.40초, Luna 18.85초였지만 Luna의 복잡한 자소서 2건에는 자료에 없는 **이후의 습관**과 **점포 방문·점주의 말을 들은 행동**이 각각 들어갔다. 단순 윤문 한 건의 시간은 14.34초와 14.17초로 비슷했다. 따라서 빠른 모델을 작문 전체의 기본값으로 바꾸지 않았다. 검토 한 건의 속도 차이만으로도 모델별 품질·속도 우위를 일반화하지 않는다.
@@ -62,6 +68,12 @@
 ## English
 
 A writing-quality advantage over using no skill has not been established. Supporting a behavior and improving the final writing are separate claims.
+
+### Astra low latency recheck — 2026-09-30
+
+The installed 0.2.1 skill was frozen and six cases outside the earlier speed comparison (three drafts, two reviews, one light edit) were run twice per condition in fresh contexts with `gpt-6-astra` at low reasoning effort. Median end-to-end CLI time was **24.69 seconds** for reading `SKILL.md`, **13.06 seconds** for supplying the same full instructions in the first message, and **13.51 seconds** for the README one-off prompt. Both direct-delivery paths beat the skill read in **12/12 matched runs**. Cumulative input was 460,976, 185,270, and 169,694 tokens respectively; file reads were 12, 0, and 0. The shorter prompt did not establish a speed advantage over directly supplying the full instructions.
+
+All conditions met the length bounds in 12/12 runs and avoided inventing specific actions or outcomes. In the under-specified customer-complaint case C03, however, a needed follow-up fact was noted outside the draft in only 1/2 skill runs, 1/2 one-off runs, and 0/2 full-inline runs. This quality gap and the small sample, cache variation, and concurrent execution limit the finding. The result measures these CLI delivery paths, not a speedup of standard `$humanize-sepia` invocation or a universal app latency claim.
 
 ### 0.2.1 latency check — 2026-09-30
 

@@ -91,7 +91,7 @@ You can follow up with a request such as “make only the second paragraph short
 
 ### Faster one-off requests
 
-For a single ordinary draft, wording edit, or review, paste the Korean prompt below and your material **in one message**, without `$humanize-sepia`. This avoids the skill-file read and was faster in four matched cases; actual latency varies by model and environment. Use the full skill for iterative critique, comparing alternatives, or maintaining writing preferences. See [Evaluation](EVALUATION.md) for the test's limits.
+For a single ordinary draft, wording edit, or review, paste the Korean prompt below and your material **in one message**, without `$humanize-sepia`. This avoids the skill-file read and was faster in two runs each of six new cases using Astra low; actual latency varies by model and environment. Use the full skill for iterative critique, comparing alternatives, or maintaining writing preferences. See [Evaluation](EVALUATION.md) for the test's limits.
 
 ```text
 이번 요청에는 설치된 스킬이나 참고 파일을 읽지 말고, 다음 자료로 한국어 글을 쓰거나 다듬어줘. 요청과 자료에서 독자·목적·방향, 자기소개서 문항이 실제로 확인하려는 내용을 파악하고 필수 답변·사례 수·분량을 지켜줘. 경험의 판단·행동·근거가 한 흐름으로 읽히게 쓰되, 역할·수치·시점·조건과 제안·승인·실행, 개인·팀 성과를 구분해. 없는 동기·행동·결과·인과나 대비되는 사실을 만들지 마. 원문의 말투는 살리고 활동 나열·막연한 역량 선언·반복은 줄여줘. 검토만 요청했다면 글을 고치지 말고 실제 문제와 선택 제안을 구분해. 핵심 답이 달라질 정보만 묻고, 완성할 수 있으면 먼저 써줘. 요청한 형식의 결과만 보여줘.
