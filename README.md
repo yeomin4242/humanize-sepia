@@ -4,7 +4,7 @@
 
 **Write clear, natural Korean that says what you mean.** Humanize Sepia helps you turn ideas and experiences into a complete piece, organize your thoughts, and refine a draft while preserving your facts and voice. Use it to write something new, improve an existing text, or find out what needs work.
 
-Version: **0.2.0**. The skill's instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
+Version: **0.2.1**. The skill's instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
 
 ## What it does
 
@@ -69,7 +69,6 @@ $humanize-sepia
 
 A draft can be a starting point for further writing. The skill keeps useful wording and voice, develops the piece around your intended message, and follows the scope you set. To explore your material first, ask it to start with one question that would help explain your judgment.
 
-To work on an existing text, specify the scope:
 
 ```text
 $humanize-sepia 내용과 말투는 그대로 두고, 어색한 문장만 다듬어줘.
@@ -89,6 +88,18 @@ $humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
 ```
 
 You can follow up with a request such as “make only the second paragraph shorter.” The skill uses the latest text, revises the requested passage, and keeps the rest unchanged.
+
+### Faster one-off requests
+
+For a single ordinary draft, wording edit, or review, paste the Korean prompt below and your material **in one message**, without `$humanize-sepia`. This avoids the skill-file read and was faster in four matched cases; actual latency varies by model and environment. Use the full skill for iterative critique, comparing alternatives, or maintaining writing preferences. See [Evaluation](EVALUATION.md) for the test's limits.
+
+```text
+이번 요청에는 설치된 스킬이나 참고 파일을 읽지 말고, 다음 자료로 한국어 글을 쓰거나 다듬어줘. 요청과 자료에서 독자·목적·방향, 자기소개서 문항이 실제로 확인하려는 내용을 파악하고 필수 답변·사례 수·분량을 지켜줘. 경험의 판단·행동·근거가 한 흐름으로 읽히게 쓰되, 역할·수치·시점·조건과 제안·승인·실행, 개인·팀 성과를 구분해. 없는 동기·행동·결과·인과나 대비되는 사실을 만들지 마. 원문의 말투는 살리고 활동 나열·막연한 역량 선언·반복은 줄여줘. 검토만 요청했다면 글을 고치지 말고 실제 문제와 선택 제안을 구분해. 핵심 답이 달라질 정보만 묻고, 완성할 수 있으면 먼저 써줘. 요청한 형식의 결과만 보여줘.
+
+[여기에 문항, 메모, 초안 등 쓰고 싶은 내용을 자유롭게 입력]
+```
+
+To work on an existing text, specify the scope:
 
 ## Use edits you liked
 

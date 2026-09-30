@@ -4,6 +4,14 @@
 
 스킬 없이 쓴 글보다 더 잘 쓴다는 우위는 아직 확인하지 못했다. 기능을 지원한다는 것과 그 기능이 글의 품질을 높인다는 것은 별도로 확인한다.
 
+### 0.2.1 실행 시간 점검 — 2026-09-30
+
+같은 0.2.0 지침을 읽는 조건에서 `gpt-6-astra` low와 `gpt-5.6-luna` low를 작문 4건·검토 1건·윤문 1건으로 비교했다. `gpt-6-luna`는 이 계정의 Codex CLI에서 지원되지 않아 실제 비교에 쓰지 못했다. 중앙값은 Astra 27.40초, Luna 18.85초였지만 Luna의 복잡한 자소서 2건에는 자료에 없는 **이후의 습관**과 **점포 방문·점주의 말을 들은 행동**이 각각 들어갔다. 단순 윤문 한 건의 시간은 14.34초와 14.17초로 비슷했다. 따라서 빠른 모델을 작문 전체의 기본값으로 바꾸지 않았다. 검토 한 건의 속도 차이만으로도 모델별 품질·속도 우위를 일반화하지 않는다.
+
+다음으로 `gpt-6-astra` low에서 동일한 지침과 사례 4건을 비교했다. 일반 스킬처럼 `SKILL.md`를 도구로 읽은 조건은 파일 읽기 4회, 실행 시간 중앙값 21.04초, 누적 입력 137,566토큰이었다. 전체 지침을 첫 메시지에 직접 넣은 조건은 파일 읽기 없이 15.29초, 61,714토큰이었다. 이어서 일회성 작업용으로 줄인 최종 요청문은 같은 4건에서 15.30초, 56,630토큰이었다. 세 조건 모두 지정 분량·형식과 확인 가능한 사실을 지켰고, 수동 점검에서 뚜렷한 품질 차이는 없었다. 짧은 요청문의 초기판에서 근거 없는 대비 표현을 발견해 수정했다. 최종판은 복잡한 작문 2건에서도 조건을 지켰지만 개발 중 본 사례라 독립 평가로 세지 않는다. 설치된 스킬 발견을 켠 별도 CLI 확인 1건에서도 최종 요청문은 파일 읽기 없이 끝났다.
+
+이 결과에 따라 [README의 빠른 1회 요청](README.ko.md#빠른-1회-요청)을 선택지로 추가했다. 이는 **스킬을 호출하지 않고** 핵심 기준을 직접 제공하는 방식이다. 일반 `$humanize-sepia` 호출의 실행 시간이 개선됐다는 뜻은 아니다. 각 조건을 사례당 한 번 실행했고 캐시·출력량도 달라, 시간·토큰 수치는 이 CLI 환경의 예비 관찰로만 해석한다. 0.2.1의 스킬 본문은 버전 번호 외에 바꾸지 않았다.
+
 ### 기본 지침의 입력량·시간 점검 — 2026-09-30
 
 기본 `SKILL.md`를 3,515바이트에서 2,825바이트로 줄였다(19.6%). 일상 작업의 핵심 기준과 일곱 참고 자료의 조건부 경로는 유지했다. 작문 2건·검토 1건·표현 윤문 1건에서 수정 전·후 지침을 같은 모델(`gpt-6-astra`, low), 같은 도구 읽기 방식으로 각각 한 번씩 실행했다. 네 사례 모두 스킬 파일을 한 번 읽고 추가 자료는 읽지 않았다.
@@ -54,6 +62,14 @@
 ## English
 
 A writing-quality advantage over using no skill has not been established. Supporting a behavior and improving the final writing are separate claims.
+
+### 0.2.1 latency check — 2026-09-30
+
+With the same 0.2.0 skill, six cases (four drafts, one review, one light edit) compared `gpt-6-astra` low with `gpt-5.6-luna` low. This account's Codex CLI rejected `gpt-6-luna`, so it was not part of the comparison. Median elapsed time was 27.40 seconds for Astra and 18.85 seconds for Luna. However, Luna introduced an unprovided later habit in one complex application essay and an unprovided store visit and conversation in another. The light edit took 14.34 versus 14.17 seconds. We did not switch the default writing model. One faster review does not establish a general model advantage.
+
+Four matched cases then compared three delivery paths with `gpt-6-astra` low. Reading the complete `SKILL.md` via a tool took a median 21.04 seconds and 137,566 cumulative input tokens, including four file reads. Placing the same full instructions in the first message took 15.29 seconds and 61,714 tokens without file reads. The final shorter one-off prompt took 15.30 seconds and 56,630 tokens. Every output met the stated length, format, and factual constraints; manual inspection found no material quality difference. An unsupported contrast in an early short-prompt draft prompted a wording change. The final prompt also met the criteria on two complex writing cases, though these were seen during development and are not independent reader evaluations. One additional CLI check with installed-skill discovery enabled completed without a file read.
+
+The [one-off prompt](README.md#faster-one-off-requests) is optional and **does not invoke the skill**. Standard `$humanize-sepia` latency was not improved. Each condition ran once per case; cache use and output length also varied, so these are preliminary observations in this CLI environment. The 0.2.1 skill body is unchanged apart from its version number.
 
 ### Entry instruction cost check — 2026-09-30
 
