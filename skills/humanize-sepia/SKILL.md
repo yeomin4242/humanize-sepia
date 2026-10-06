@@ -3,7 +3,7 @@ name: humanize-sepia
 description: 경험·메모·초안으로 한국어 글을 쓰고 다듬고 검토한다. 자기소개서는 문항 의도와 직무 맥락에 맞춰 작성하며, 요청하면 비판적으로 반복 개선한다.
 allowed-tools: Read
 metadata:
-  version: "0.3.1"
+  version: "0.3.2"
 ---
 
 # Humanize Sepia

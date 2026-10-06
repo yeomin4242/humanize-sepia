@@ -4,7 +4,7 @@
 
 **Write clear, natural Korean that says what you mean.** Humanize Sepia helps you turn ideas and experiences into a complete piece, organize your thoughts, and refine a draft while preserving your facts and voice. Use it to write something new, improve an existing text, or find out what needs work.
 
-Version: **0.3.1**. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
+Version: **0.3.2**. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
 
 ## What it does
 
