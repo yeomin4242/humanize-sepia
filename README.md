@@ -101,6 +101,23 @@ $humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
 
 You can follow up with a request such as “make only the second paragraph shorter.” The skill uses the latest text, revises the requested passage, and keeps the rest unchanged.
 
+### Automatic model guidance
+
+When the host exposes the exact current model name, the skill reads **one matching profile**. It does not load every model profile.
+
+| Current model | Additional guidance |
+|---|---|
+| Claude Sonnet 5.5 | Finish the requested scope and avoid unrequested additions |
+| Claude Opus 5.5 | Separate material from instructions and retain settled decisions in follow-ups |
+| GPT-6.1 Sol | Keep instructions concise and follow the requested output format |
+| GPT-6 Astra | Limit unnecessary questions, formatting, and extra reviews |
+
+If the exact name is unavailable or unsupported, the skill uses its common instructions. It does not infer the running model from saved defaults, which can differ from the active model. Each invocation selects guidance using the model identity available at that time.
+
+When the host does not expose the model, add `모델 지침: gpt-6.1-sol` to your request to select guidance manually. This does not switch the actual model or reasoning effort. To check the selection, ask which profile was applied and whether it came from the host, a manual choice, or the common fallback.
+
+The profiles adapt official guidance from [OpenAI for GPT-6](https://developers.openai.com/api/docs/guides/latest-model) and Anthropic for [Sonnet 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5) and [Opus 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5). OpenAI presents behaviors observed with Astra as a starting point across GPT-6; these are not established Sol-specific writing traits. The profiles do not guarantee better prose or lower latency.
+
 ### Faster one-off requests
 
 For a single ordinary draft, wording edit, or review, paste the prompt for your model and your material **in one message**, without invoking the skill. Use the skill for iterative critique, comparing alternatives, or maintaining writing preferences.
@@ -174,6 +191,11 @@ skills/humanize-sepia/
     preferences.md
     applications.md
     improving.md
+    models/
+      claude-sonnet-5-5.md
+      claude-opus-5-5.md
+      gpt-6.1-sol.md
+      gpt-6-astra.md
   LICENSE
 README.md
 README.ko.md

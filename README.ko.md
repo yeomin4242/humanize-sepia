@@ -102,6 +102,23 @@ $humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
 
 다듬은 뒤 “두 번째 문단만 더 짧게 해줘”처럼 이어서 요청할 수도 있습니다. 가장 최근 글에서 지정한 부분만 다시 다듬고, 나머지는 유지합니다.
 
+### 모델별 지침 자동 선택
+
+스킬을 호출하면 **호스트가 현재 모델명을 알려 주는 경우** 아래 지침 중 하나를 자동으로 읽습니다. 모든 모델 지침을 한꺼번에 읽지는 않습니다.
+
+| 현재 모델 | 추가로 적용하는 기준 |
+|---|---|
+| Claude Sonnet 5.5 | 요청한 범위까지 완성하고 불필요한 추가 작업 줄이기 |
+| Claude Opus 5.5 | 자료와 지시 구분, 후속 수정에서 이미 정한 기준 유지 |
+| GPT-6.1 Sol | 간결한 지침과 요청한 결과 형식 유지 |
+| GPT-6 Astra | 과도한 질문·형식·추가 검토 줄이기 |
+
+정확한 모델명을 알 수 없거나 지원 목록에 없는 모델이면 공통 지침으로 작업합니다. 기본 설정에 저장된 모델명은 실제 실행 모델과 다를 수 있으므로 자동 판별에 사용하지 않습니다. 새 호출에서 모델이 바뀌면 그때 전달된 모델명으로 다시 선택합니다.
+
+모델명을 전달하지 않는 환경에서는 요청에 `모델 지침: gpt-6.1-sol`처럼 적어 수동으로 선택할 수 있습니다. 실제 실행 모델이나 추론 강도를 바꾸는 기능은 아닙니다. 선택을 확인하려면 “이번에 적용한 모델 지침과 선택 근거만 알려줘”라고 요청하세요.
+
+각 지침은 [OpenAI의 GPT-6 안내](https://developers.openai.com/api/docs/guides/latest-model), Anthropic의 [Sonnet 5.5 안내](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5)와 [Opus 5.5 안내](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5)를 글쓰기 작업에 맞춰 적용했습니다. OpenAI 안내는 Astra에서 관찰한 행동을 GPT-6 계열의 시작점으로 제시하므로, Sol만의 작문 특성으로 단정하지 않습니다. 모델별 작문 우위나 실행시간 개선을 보장하지 않습니다.
+
 ### 빠른 1회 요청
 
 간단한 작성·윤문·검토를 한 번만 하고 싶다면 사용하는 모델에 맞는 문구와 자료를 **한 메시지에** 넣을 수 있습니다. 이때는 스킬 이름을 붙이지 않습니다. 반복 개선·여러 안 비교·선호 기록처럼 상세 지침이 필요한 작업에는 스킬을 사용하세요.
@@ -175,6 +192,11 @@ skills/humanize-sepia/
     preferences.md
     applications.md
     improving.md
+    models/
+      claude-sonnet-5-5.md
+      claude-opus-5-5.md
+      gpt-6.1-sol.md
+      gpt-6-astra.md
   LICENSE
 README.md
 README.ko.md
