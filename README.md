@@ -109,8 +109,12 @@ When the host exposes the exact current model name, the skill reads **one matchi
 |---|---|
 | Claude Sonnet 5.5 | Finish the requested scope and avoid unrequested additions |
 | Claude Opus 5.5 | Separate material from instructions and retain settled decisions in follow-ups |
-| GPT-6.1 Sol | Keep instructions concise and follow the requested output format |
+| GPT-6.1 Sol | Shared Sol guidance: connect the main point to evidence and follow the output format |
+| GPT-6 Sol (6.0 Sol) | Reuse the same Sol guidance |
+| GPT-6 Luna (6.0 Luna) | Keep focused tasks concise while preserving required facts and output scope |
 | GPT-6 Astra | Limit unnecessary questions, formatting, and extra reviews |
+
+The official IDs are `gpt-6.1-sol`, `gpt-6-sol`, and `gpt-6-luna`. Guidance selection also recognizes `gpt-6.0-sol` and `gpt-6.0-luna` as the corresponding 6 Sol and 6 Luna profiles; this does not change CLI model IDs. Both Sol versions share one profile because the official guide does not establish separate Korean writing instructions for them. Luna uses a concise adaptation for focused tasks, not demonstrated model-specific writing traits. See the official [Sol](https://developers.openai.com/api/docs/models/gpt-6-sol) and [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) model pages.
 
 If the exact name is unavailable or unsupported, the skill uses its common instructions. It does not infer the running model from saved defaults, which can differ from the active model. Each invocation selects guidance using the model identity available at that time.
 
@@ -118,7 +122,7 @@ When the host does not expose the model, add `모델 지침: gpt-6.1-sol` to you
 
 The profiles adapt official guidance from [OpenAI for GPT-6](https://developers.openai.com/api/docs/guides/latest-model) and Anthropic's [general prompting guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), [Sonnet 5.5 guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5), and [Opus 5.5 guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5). Shared instructions cover focused paragraphs and concrete language. Claude profiles distinguish deliverables, source material, and examples. Sonnet emphasizes completing the requested scope and stopping when done; Opus emphasizes grounding long inputs and limiting follow-up edits to the relevant scope. GPT profiles emphasize connecting the main point to evidence and limiting excessive formatting and stock conclusions.
 
-Coding and agentic results in the official guides are not evidence of Korean writing performance. OpenAI presents behaviors observed with Astra as a starting point across GPT-6; these are not established Sol-specific writing traits. The profiles do not guarantee better prose or lower latency.
+Coding and agentic results in the official guides are not evidence of Korean writing performance. OpenAI presents behaviors observed with Astra as a starting point across GPT-6; these are not established Sol- or Luna-specific writing traits. The profiles do not guarantee better prose or lower latency.
 
 ### Faster one-off requests
 
@@ -196,7 +200,8 @@ skills/humanize-sepia/
     models/
       claude-sonnet-5-5.md
       claude-opus-5-5.md
-      gpt-6.1-sol.md
+      gpt-sol.md
+      gpt-6-luna.md
       gpt-6-astra.md
   LICENSE
 README.md

@@ -110,8 +110,12 @@ $humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
 |---|---|
 | Claude Sonnet 5.5 | 요청한 범위까지 완성하고 불필요한 추가 작업 줄이기 |
 | Claude Opus 5.5 | 자료와 지시 구분, 후속 수정에서 이미 정한 기준 유지 |
-| GPT-6.1 Sol | 간결한 지침과 요청한 결과 형식 유지 |
+| GPT-6.1 Sol | Sol 공통 지침: 요점과 근거 연결, 요청한 결과 형식 유지 |
+| GPT-6 Sol (6.0 Sol) | 같은 Sol 지침을 재사용 |
+| GPT-6 Luna (6.0 Luna) | 짧은 작업에 맞춰 핵심·필수 사실·출력 범위 유지 |
 | GPT-6 Astra | 과도한 질문·형식·추가 검토 줄이기 |
+
+공식 모델 ID는 `gpt-6.1-sol`, `gpt-6-sol`, `gpt-6-luna`입니다. 지침을 고를 때 `gpt-6.0-sol`과 `gpt-6.0-luna` 표기도 각각 6 Sol과 6 Luna로 읽습니다. 이 표기 대응은 CLI의 실행 모델 이름을 바꾸는 기능은 아닙니다. 두 Sol 버전은 공식 가이드에서 별도의 한국어 작문 지침을 제시하지 않아 같은 파일을 사용합니다. Luna 지침은 짧은 작업에 맞춘 적용안이며, 고유한 작문 특성으로 단정하지 않습니다. [Sol 모델 안내](https://developers.openai.com/api/docs/models/gpt-6-sol), [Luna 모델 안내](https://developers.openai.com/api/docs/models/gpt-6-luna)를 함께 참고했습니다.
 
 정확한 모델명을 알 수 없거나 지원 목록에 없는 모델이면 공통 지침으로 작업합니다. 기본 설정에 저장된 모델명은 실제 실행 모델과 다를 수 있으므로 자동 판별에 사용하지 않습니다. 새 호출에서 모델이 바뀌면 그때 전달된 모델명으로 다시 선택합니다.
 
@@ -119,7 +123,7 @@ $humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
 
 각 지침은 [OpenAI의 GPT-6 안내](https://developers.openai.com/api/docs/guides/latest-model), Anthropic의 [공통 프롬프트 안내](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), [Sonnet 5.5 안내](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5), [Opus 5.5 안내](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5)를 글쓰기 작업에 맞춰 적용했습니다. 공통 기준에는 문단의 중심 내용과 구체적인 표현을, Claude 지침에는 결과·자료·예문의 구분을 반영했습니다. Sonnet에서는 요청 범위의 완성과 종료 조건을, Opus에서는 긴 자료의 근거 확인과 후속 수정의 범위를 강조합니다. GPT 지침은 요점과 근거의 연결, 과도한 형식과 상투적인 총평을 줄이는 데 초점을 둡니다.
 
-공식 안내의 코딩·에이전트 작업 결과를 한국어 작문 성능으로 간주하지 않습니다. OpenAI 안내는 Astra에서 관찰한 행동을 GPT-6 계열의 시작점으로 제시하므로, Sol만의 작문 특성으로 단정하지 않습니다. 모델별 작문 우위나 실행시간 개선을 보장하지 않습니다.
+공식 안내의 코딩·에이전트 작업 결과를 한국어 작문 성능으로 간주하지 않습니다. OpenAI 안내는 Astra에서 관찰한 행동을 GPT-6 계열의 시작점으로 제시하므로, Sol·Luna 각각의 작문 특성으로 단정하지 않습니다. 모델별 작문 우위나 실행시간 개선을 보장하지 않습니다.
 
 ### 빠른 1회 요청
 
@@ -197,7 +201,8 @@ skills/humanize-sepia/
     models/
       claude-sonnet-5-5.md
       claude-opus-5-5.md
-      gpt-6.1-sol.md
+      gpt-sol.md
+      gpt-6-luna.md
       gpt-6-astra.md
   LICENSE
 README.md

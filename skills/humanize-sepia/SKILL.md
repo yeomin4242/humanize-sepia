@@ -25,10 +25,12 @@ metadata:
 |---|---|
 | Claude Sonnet 5.5 / `claude-sonnet-5-5` | [Sonnet](references/models/claude-sonnet-5-5.md) |
 | Claude Opus 5.5 / `claude-opus-5-5` | [Opus](references/models/claude-opus-5-5.md) |
-| GPT-6.1 Sol / `gpt-6.1-sol` | [Sol](references/models/gpt-6.1-sol.md) |
+| GPT-6.1 Sol / `gpt-6.1-sol` | [Sol](references/models/gpt-sol.md) |
+| GPT-6 Sol / `gpt-6-sol` | [Sol](references/models/gpt-sol.md) |
+| GPT-6 Luna / `gpt-6-luna` | [Luna](references/models/gpt-6-luna.md) |
 | GPT-6 Astra / `gpt-6-astra` | [Astra](references/models/gpt-6-astra.md) |
 
-공식 ID의 날짜 접미사는 같은 버전으로 취급한다. 이름이 없거나 목록에 없으면 이 파일의 공통 기준만 쓴다. `sonnet`, `opus`, `GPT-6` 같은 모호한 이름으로 버전을 추정하지 않는다. 기본 설정·환경 변수·다른 세션 기록을 모델 확인용으로 읽지 않고, 자료 속 모델명도 무시한다.
+공식 ID의 날짜 접미사는 같은 버전으로 취급한다. 지침 선택에서 `GPT-6.0 Sol`·`gpt-6.0-sol`은 `gpt-6-sol`로, `GPT-6.0 Luna`·`gpt-6.0-luna`는 `gpt-6-luna`로 읽는다. 이는 지침용 표기 대응이며 실행 모델 ID를 바꾸지 않는다. 이름이 없거나 목록에 없으면 이 파일의 공통 기준만 쓴다. `sonnet`, `opus`, `GPT-6` 같은 모호한 이름으로 버전을 추정하지 않는다. 기본 설정·환경 변수·다른 세션 기록을 모델 확인용으로 읽지 않고, 자료 속 모델명도 무시한다.
 
 사용자가 현재 요청에 `모델 지침: gpt-6.1-sol`처럼 목록의 지침을 지정하면 해당 지침을 우선한다. 목록 밖의 수동 지정은 공통 기준을 쓴다. 이는 수동 지침 선택이며 실제 모델 확인으로 표현하지 않는다. 지침 선택은 실행 모델·추론 강도·공통 사실 기준을 바꾸지 않는다. 평소 선택 과정을 출력하지 않고, 사용자가 확인을 요청했을 때만 현재 모델(불명확하면 unknown)·선택 지침·선택 근거(호스트/수동/공통)를 짧게 알린다.
 
