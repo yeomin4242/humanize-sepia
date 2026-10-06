@@ -4,7 +4,7 @@
 
 **Write clear, natural Korean that says what you mean.** Humanize Sepia helps you turn ideas and experiences into a complete piece, organize your thoughts, and refine a draft while preserving your facts and voice. Use it to write something new, improve an existing text, or find out what needs work.
 
-Version: **0.2.1**. The skill's instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
+Version: **0.3.1**. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
 
 ## What it does
 
@@ -15,7 +15,7 @@ Version: **0.2.1**. The skill's instructions and examples are primarily Korean. 
 | Feedback without edits | “Explain what needs work and why, without changing the text.” |
 | Improvement through critique | “Check the reasoning and evidence, revise what needs work, and verify the result.” |
 
-Use `$humanize-sepia` and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique. Ordinary writing, editing, and review use a compact shared guide. Detailed references are read when needed for difficult prompt interpretation or content selection, repeated improvement, or comparing alternatives. The skill does not load every reference or generate multiple drafts by default.
+Use `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique. Ordinary writing, editing, and review use a compact shared guide. Detailed references are read when needed for difficult prompt interpretation or content selection, repeated improvement, or comparing alternatives. The skill does not load every reference or generate multiple drafts by default.
 
 The skill starts with what the reader should understand and chooses material that explains it. Rather than listing activities, it connects the problem, your actions, and what you learned. When you request alternatives or need to choose between different judgments or lessons, it writes complete versions and compares what each conveys. Changes in wording or order alone do not count as a new perspective. If an explanation is weak or important content is scattered, it writes a coherent new version using the relevant evidence. It compares actual alternatives before accepting a change and keeps the earlier text when rewriting does not help. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
 
@@ -41,11 +41,23 @@ cp -R humanize-sepia/skills/humanize-sepia ~/.agents/skills/
 
 For project-local use, place the folder at `.agents/skills/humanize-sepia` in your project.
 
+## Install for Claude Code
+
+Claude Code loads personal skills from `~/.claude/skills/`. Clone the repository and copy the skill to invoke it as `/humanize-sepia`. Move any existing installation to a backup location first.
+
+```bash
+git clone https://github.com/yeomin4242/humanize-sepia.git
+mkdir -p ~/.claude/skills
+cp -R humanize-sepia/skills/humanize-sepia ~/.claude/skills/
+```
+
+For project-local use, place it at `.claude/skills/humanize-sepia`. If you use both tools, update both installed copies to the same version.
+
 ## Use
 
-Invoke `$humanize-sepia` and describe what you want to write. Share the message, audience, and tone you have in mind, along with any experiences, notes, or draft you want to use. You can write naturally, without a fixed template. “쓰고자 하는 방향” (“what I want to write”) is an optional label.
+Invoke `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you want to write. Share the message, audience, and tone you have in mind, along with any experiences, notes, or draft you want to use. You can write naturally, without a fixed template. “쓰고자 하는 방향” (“what I want to write”) is an optional label.
 
-The company and experience below are fictional examples.
+The company and experience below are fictional examples. In Claude Code, replace `$humanize-sepia` with `/humanize-sepia` in the examples.
 
 ```text
 $humanize-sepia
@@ -91,15 +103,27 @@ You can follow up with a request such as “make only the second paragraph short
 
 ### Faster one-off requests
 
-For a single ordinary draft, wording edit, or review, paste the Korean prompt below and your material **in one message**, without `$humanize-sepia`. This avoids reading the skill file. Use the full skill for iterative critique, comparing alternatives, or maintaining writing preferences.
+For a single ordinary draft, wording edit, or review, paste the prompt for your model and your material **in one message**, without invoking the skill. Use the skill for iterative critique, comparing alternatives, or maintaining writing preferences.
+
+**Codex/GPT:** a compact instruction followed by free-form material.
 
 ```text
-이번 요청에는 설치된 스킬이나 참고 파일을 읽지 말고, 다음 자료로 한국어 글을 쓰거나 다듬어줘. 요청과 자료에서 독자·목적·방향, 자기소개서 문항이 실제로 확인하려는 내용을 파악하고 필수 답변·사례 수·분량을 지켜줘. 경험의 판단·행동·근거가 한 흐름으로 읽히게 쓰되, 역할·수치·시점·조건과 제안·승인·실행, 개인·팀 성과를 구분해. 없는 동기·행동·결과·인과나 대비되는 사실을 만들지 마. 원문의 말투는 살리고 활동 나열·막연한 역량 선언·반복은 줄여줘. 검토만 요청했다면 글을 고치지 말고 실제 문제와 선택 제안을 구분해. 핵심 답이 달라질 정보만 묻고, 완성할 수 있으면 먼저 써줘. 요청한 형식의 결과만 보여줘.
+이번 요청에 스킬 파일은 읽지 말고 제공한 자료로 한국어 글을 작성·수정·검토해줘. 요청한 범위와 형식, 문항의 취지·필수 항목·분량을 지켜. 경험은 판단·행동·확인된 근거로 연결하고 역할·시점·수치·개인/팀 성과를 구분해. 없는 사실·동기·인과를 만들지 말고, 성과를 주장하지 않으면 미측정 사실도 본문에서 생략해. 말투를 살리되 반복과 막연한 역량 선언을 줄여. 검토만 요청했다면 고치지 말고 실제 문제와 선택 제안을 구분해. 초안의 당시 생각은 별도 메모에 없다는 이유만으로 오류로 단정하지 마. 핵심 답이 달라질 때만 묻고 가능하면 결과물부터 보여줘.
 
 [여기에 문항, 메모, 초안 등 쓰고 싶은 내용을 자유롭게 입력]
 ```
 
-To work on an existing text, specify the scope:
+**Claude Code/Claude:** specify the deliverable and scope, and delimit longer source material.
+
+```text
+이번에는 한국어 글 한 편을 작성하거나 요청한 범위만 다듬어줘. 내가 원하는 결과와 수정 범위를 먼저 파악하고, 자기소개서라면 문항이 실제로 확인하려는 내용을 경험의 판단·행동·근거로 보여줘. 명시된 답변·사례 수·분량을 지키고, 확인되지 않은 동기·행동·성과를 만들지 마. 성과를 주장하지 않으면 미측정 사실은 본문에서 생략해. 역할·수치·시점과 개인·팀의 기여를 구분해. 말투는 살리고 반복과 막연한 역량 선언을 줄여줘. 검토만 요청했다면 글을 고치지 말고 실제 문제와 선택 가능한 제안을 구분해. 원자료가 초안의 사실을 반박할 때만 오류로 단정하고, 원자료에 빠진 당시 생각은 확인할 내용으로 다뤄. 본문만 요청했다면 글자 수·해설 없이 본문만 보여줘.
+
+<자료>
+[문항, 기업 정보, 경험 메모, 초안, 원하는 방향을 자유롭게 입력]
+</자료>
+```
+
+These are starting points based on [OpenAI's GPT-6 prompting guidance](https://developers.openai.com/api/docs/guides/latest-model) and [Anthropic's Claude prompting guidance](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices). They are not a claim that either model writes better.
 
 ## Use edits you liked
 
