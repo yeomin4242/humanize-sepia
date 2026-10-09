@@ -8,3 +8,5 @@ __pycache__/
 /eval/
 /benchmarks/
 /work/
+/docs/evaluations/
+/docs/0.3.3-*.md

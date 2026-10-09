@@ -4,7 +4,7 @@
 
 **Write clear, natural Korean that says what you mean.** Humanize Sepia helps you turn ideas and experiences into a complete piece, organize your thoughts, and refine a draft while preserving your facts and voice. Use it to write something new, improve an existing text, or find out what needs work.
 
-Version: **0.3.2**. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
+Version: **0.3.3**. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
 
 ## What it does
 
@@ -15,13 +15,36 @@ Version: **0.3.2**. The skill works in Codex and Claude Code. Its instructions a
 | Feedback without edits | “Explain what needs work and why, without changing the text.” |
 | Improvement through critique | “Check the reasoning and evidence, revise what needs work, and verify the result.” |
 
-Use `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique. Ordinary writing, editing, and review use a compact shared guide. Detailed references are read when needed for difficult prompt interpretation or content selection, repeated improvement, or comparing alternatives. The skill does not load every reference or generate multiple drafts by default.
+Use `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique. Ordinary writing, editing, and review use a compact shared guide. Detailed references are read when needed for difficult prompt interpretation or content selection, critical improvement or comparing alternatives. The skill does not load every reference or generate multiple drafts by default.
 
 The skill starts with what the reader should understand and chooses material that explains it. Rather than listing activities, it connects the problem, your actions, and what you learned. When you request alternatives or need to choose between different judgments or lessons, it writes complete versions and compares what each conveys. Changes in wording or order alone do not count as a new perspective. If an explanation is weak or important content is scattered, it writes a coherent new version using the relevant evidence. It compares actual alternatives before accepting a change and keeps the earlier text when rewriting does not help. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
 
 For job application essays, it considers the company and role to understand what the question is trying to assess. A question about a “different perspective” may call for showing what you noticed about a problem and why you chose a particular approach. The essay must also meet the stated length limit, number of examples, and required parts of the question.
 
 It grounds the qualities you want to show in your actual experience. It keeps your actions distinct from other people's approval and the team's results. If essential facts are missing, it asks a focused question or drafts from confirmed information. It can also ask about a decision that would make your account more meaningful, such as why you chose an approach. Requests to write immediately or return only the text take priority, and questions stay outside the essay.
+
+## Writing rules in 0.3.3
+
+- Lists: compact entries with consistent noun or phrase endings; familiar Sino-Korean terms retained
+- Effects and outcomes: adjacent evidence from measurements, observations, examples, or feedback; intended purpose distinguished from observed effect
+- Endings: empty pledges removed; required plans and protected sentences preserved
+- Editing scope: wording, structure, and review handled separately; satisfactory original passages retained
+- Application length: aim as close to the cap as possible, targeting 495–500 characters for a 500-character cap; explicit requests to ignore length disable counting and length adjustment
+- Review: one pass by default; additional checks limited to explicit requests or remaining factual and required-condition errors
+
+Voice follows your explicit request, then the original or reference text, then the channel default.
+
+| Channel | Default Korean voice and format |
+|---|---|
+| Reports and work updates | Neutral wording, compact lists for parallel points |
+| Business email | Polite 합니다체, purpose and requests first |
+| Blogs and explainers | 해요체, paragraphs for explanations and compact lists for steps |
+| Social posts | Concise 해요체, short sentences and paragraphs |
+| Job applications | Restrained 합니다체, prose answering the question |
+
+Changing channels preserves facts, numbers, roles, and the strength of evidence. Model-specific guidance follows the same priority.
+
+A 500-character cap counts each Korean character once. A 500-byte cap uses the specified counting convention, defaulting to two bytes per Korean character and one per ASCII character, including spaces. The destination’s rules and explicit space-inclusion instructions take priority; spaces are included by default. This two-byte convention is distinct from UTF-8 byte length. Length is filled with relevant source material, without invented facts or empty pledges.
 
 ## Install for Codex
 
@@ -131,7 +154,7 @@ For a single ordinary draft, wording edit, or review, paste the prompt for your 
 **Codex/GPT:** a compact instruction followed by free-form material.
 
 ```text
-이번 요청에는 스킬 파일을 읽지 말고 제공한 자료로 한국어 글을 작성·수정·검토해줘. 독자와 전하려는 핵심을 파악하고 요청한 범위·형식·분량을 지켜. 자기소개서는 문항이 확인하려는 내용을 경험의 판단·행동·근거로 보여주되 필수 답변과 사례 수를 지켜. 요점과 이를 설명하는 근거가 이어지는 문단으로 쓰고, 익숙한 단어와 구체적인 동사를 사용해. 원문 말투는 살려줘. 역할·시점·수치·개인/팀 기여·제안/실행을 구분하고 확인된 사실로 써줘. 없는 동기·성과·인과는 만들지 마. 성과를 주장하지 않을 때 미측정 사실을 본문에 덧붙일 필요는 없어. 검토만 요청했다면 문제 구간·이유·수정 방향을 짚고 실제 문제와 선택 제안을 구분해. 초안의 당시 생각은 다른 메모에 빠졌다는 이유만으로 오류가 아니야. 자료로 완성할 수 있으면 요청한 결과물을 제공하고, 핵심 답이 달라질 정보만 물어봐.
+이번 요청에는 스킬 파일을 읽지 말고 제공한 자료로 한국어 글을 작성·수정·검토해줘. 독자와 전하려는 핵심을 파악하고 요청한 범위·형식·분량을 지켜. 자기소개서는 문항이 확인하려는 내용을 경험의 판단·행동·근거로 보여주되 필수 답변과 사례 수를 지켜. 자소서 분량은 제한 상한에 최대한 근접하게 맞춰줘. 자와 바이트를 구분하고 바이트 제한은 한글 2·영문/숫자/공백 1바이트로 계산하되 제출처 규칙을 우선해줘. 글자 수 제한 신경 쓰지 말라는 명시적 요청이 있으면 계산과 분량 조정은 생략해줘. 요점과 이를 설명하는 근거가 이어지는 문단으로 쓰고, 구체적인 동사를 사용해. 통용 한자어는 유지하고 목록은 항목명과 짧은 명사형·구로 정리해줘. 효과를 말하면 인접 문장에 실제 근거를 붙이고 행동 목적과 확인된 효과를 구분해줘. 내용 없는 마무리 다짐은 빼되 필수 포부와 보호 문장은 유지해줘. 말투는 사용자 요청·원문·채널 기본값 순으로 적용하고, 보고서는 중립적 개조식, 메일·자소서는 합니다체, 블로그·SNS는 해요체를 기본으로 써줘. 원문 말투는 살려줘. 역할·시점·수치·개인/팀 기여·제안/실행을 구분하고 확인된 사실로 써줘. 없는 동기·성과·인과는 만들지 마. 성과를 주장하지 않을 때 미측정 사실을 본문에 덧붙일 필요는 없어. 검토만 요청했다면 문제 구간·이유·수정 방향을 짚고 실제 문제와 선택 제안을 구분해. 초안의 당시 생각은 다른 메모에 빠졌다는 이유만으로 오류가 아니야. 자료로 완성할 수 있으면 요청한 결과물을 제공하고, 핵심 답이 달라질 정보만 물어봐.
 
 [여기에 문항, 메모, 초안 등 쓰고 싶은 내용을 자유롭게 입력]
 ```
@@ -139,7 +162,7 @@ For a single ordinary draft, wording edit, or review, paste the prompt for your 
 **Claude Code/Claude:** specify the deliverable and scope, and delimit longer source material.
 
 ```text
-아래 자료와 원하는 방향을 읽고 요청한 한국어 글을 완성하거나 지정한 범위만 다듬어줘. 내 현재 요청, 문항·기업 소개·경험 메모·초안, 말투를 참고할 예문을 구분해서 사용해. 독자와 글의 용도를 표현 선택의 기준으로 삼아줘. 자기소개서는 문항이 확인하려는 내용을 판단·행동·근거로 연결하고 필수 답변·사례 수·분량을 지켜. 글은 중심 내용이 분명하고 문장이 자연스럽게 이어지는 문단으로 써줘. 예문의 말투와 설명 방식은 참고하되 예문 속 경험은 현재 글의 사실로 가져오지 마. 역할·수치·시점·개인/팀 기여를 구분하고, 확인되지 않은 동기·행동·성과는 만들지 마. 성과를 주장하지 않을 때 미측정 사실을 본문에 덧붙일 필요는 없어. 검토만 요청했다면 실제 문제와 선택 제안을 구분하고, 같은 원인의 지적을 묶어 구간·이유·수정 방향을 간결하게 짚어줘. 초안의 당시 생각은 메모에 없다는 이유만으로 오류가 아니야. 필요한 작업과 확인을 마치면 요청한 결과로 끝내고, 본문만 요청했다면 본문만 제공해줘.
+아래 자료와 원하는 방향을 읽고 요청한 한국어 글을 완성하거나 지정한 범위만 다듬어줘. 내 현재 요청, 문항·기업 소개·경험 메모·초안, 말투를 참고할 예문을 구분해서 사용해. 독자와 글의 용도를 표현 선택의 기준으로 삼아줘. 자기소개서는 문항이 확인하려는 내용을 판단·행동·근거로 연결하고 필수 답변·사례 수·분량을 지켜. 자소서 분량은 제한 상한에 최대한 근접하게 맞춰줘. 자와 바이트를 구분하고 바이트 제한은 한글 2·영문/숫자/공백 1바이트로 계산하되 제출처 규칙을 우선해줘. 글자 수 제한 신경 쓰지 말라는 명시적 요청이 있으면 계산과 분량 조정은 생략해줘. 글은 중심 내용이 분명하고 문장이 자연스럽게 이어지도록 써줘. 통용 한자어는 유지하고 목록은 항목명과 짧은 명사형·구로 정리해줘. 효과를 말하면 인접 문장에 실제 근거를 붙이고 행동 목적과 확인된 효과를 구분해줘. 내용 없는 마무리 다짐은 빼되 필수 포부와 보호 문장은 유지해줘. 말투는 사용자 요청·원문·채널 기본값 순으로 적용하고, 보고서는 중립적 개조식, 메일·자소서는 합니다체, 블로그·SNS는 해요체를 기본으로 써줘. 예문의 말투와 설명 방식은 참고하되 예문 속 경험은 현재 글의 사실로 가져오지 마. 역할·수치·시점·개인/팀 기여를 구분하고, 확인되지 않은 동기·행동·성과는 만들지 마. 성과를 주장하지 않을 때 미측정 사실을 본문에 덧붙일 필요는 없어. 검토만 요청했다면 실제 문제와 선택 제안을 구분하고, 같은 원인의 지적을 묶어 구간·이유·수정 방향을 간결하게 짚어줘. 초안의 당시 생각은 메모에 없다는 이유만으로 오류가 아니야. 필요한 작업과 확인을 마치면 요청한 결과로 끝내고, 본문만 요청했다면 본문만 제공해줘.
 
 <자료>
 [문항, 기업 정보, 경험 메모, 초안, 원하는 방향을 자유롭게 입력]
@@ -179,7 +202,7 @@ If the environment supports a separate reviewer, you can ask for a reader's crit
 
 After revision, it checks both whether the identified problem is resolved and whether important content, facts, and voice remain intact. It accepts useful changes, repairs individual changes that went wrong, and returns to the previous verified draft if the piece became worse overall.
 
-The default is one critique, revision, and verification pass. It repeats only when a significant, fixable problem remains, with up to three revision passes unless you request otherwise. Good text can stay unchanged. If progress stops or an essential fact needs your input, it explains the gap and stops. Neither the number of passes nor a higher self-assigned score establishes writing quality.
+The default is one critique, revision, and verification pass. Further checks are limited to your explicit request or passages with remaining factual errors or unmet required conditions. Good text can stay unchanged. If an essential fact is missing or a revision does not help, the skill identifies the passage and reason, then stops. Pass counts and self-assigned scores do not establish quality. A separate reviewer is used only on an explicit request, with one reviewer by default. Ordinary text review uses no separate agents or scripts. Mechanical checks such as exact character counts use only the minimum tools permitted by the host.
 
 The result starts with the text, followed by brief notes on important changes or facts to confirm. Your requested format takes priority. Check the final text against your actual experience and numbers. AI-detector scores are not a measure of writing quality.
 
@@ -197,6 +220,7 @@ skills/humanize-sepia/
     preferences.md
     applications.md
     improving.md
+    channels.md
     models/
       claude-sonnet-5-5.md
       claude-opus-5-5.md
