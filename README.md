@@ -15,7 +15,7 @@ Development version: **0.4.0-dev**, based on the 0.3.3 release. The skill works 
 | Feedback without edits | “Explain what needs work and why, without changing the text.” |
 | Improvement through critique | “Check the reasoning and evidence, revise what needs work, and verify the result.” |
 
-Use `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique. Ordinary writing, editing, and review use a compact shared guide. Detailed references are read when needed for difficult prompt interpretation or content selection, critical improvement or comparing alternatives. The skill does not load every reference or generate multiple drafts by default.
+Use `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique. Simple tasks use a compact shared guide. References are read for the current task, such as selecting material for a new piece, editing sentence structure, or comparing alternatives. The skill does not load every reference or generate multiple drafts by default.
 
 The skill starts with what the reader should understand and chooses material that explains it. Rather than listing activities, it connects the problem, your actions, and what you learned. When you request alternatives or need to choose between different judgments or lessons, it writes complete versions and compares what each conveys. Changes in wording or order alone do not count as a new perspective. If an explanation is weak or important content is scattered, it writes a coherent new version using the relevant evidence. It compares actual alternatives before accepting a change and keeps the earlier text when rewriting does not help. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
 
@@ -23,7 +23,7 @@ For job application essays, it considers the company and role to understand what
 
 It grounds the qualities you want to show in your actual experience. It keeps your actions distinct from other people's approval and the team's results. If essential facts are missing, it asks a focused question or drafts from confirmed information. It can also ask about a decision that would make your account more meaningful, such as why you chose an approach. Requests to write immediately or return only the text take priority, and questions stay outside the essay.
 
-## Writing rules in 0.3.3
+## Writing rules
 
 - Lists: compact entries with consistent noun or phrase endings; familiar Sino-Korean terms retained
 - Effects and outcomes: adjacent evidence from measurements, observations, examples, or feedback; intended purpose distinguished from observed effect
@@ -46,16 +46,24 @@ Changing channels preserves facts, numbers, roles, and the strength of evidence.
 
 A 500-character cap counts each Korean character once. A 500-byte cap uses the specified counting convention, defaulting to two bytes per Korean character and one per ASCII character, including spaces. The destination’s rules and explicit space-inclusion instructions take priority; spaces are included by default. This two-byte convention is distinct from UTF-8 byte length. Length is filled with relevant source material, without invented facts or empty pledges.
 
-## Preparing 0.4
+## Changes in the 0.4 development version
 
-This branch is a **0.4.0-dev draft**, based on 0.3.3. It has not been published as a final 0.4 release.
+This branch contains **0.4.0-dev**, based on 0.3.3. It has not been published as a final 0.4 release.
 
-- Contextual editing: inspect filler, padded lists, transitions, and repeated structures by their function and effect on the reader.
-- Voice preservation: use a relevant passage from the author's writing; retain clear sentences and purposeful repetition.
-- Research and proposals: preserve hypotheses, uncertainty, approval conditions, and future plans without adding experiences, results, or citations.
-- Conditional reading: load detailed naturalness guidance only when that task is requested.
+- Writing: choose the point the reader needs to understand and the judgments, actions, and evidence that support it; improve connections and give important material more space.
+- Editing: fix agreement, modifier placement, nominalization, passive constructions, and redundancy where needed; retain clear long sentences, individual voice, and uncertainty.
+- Review and revision: connect each problem to a passage, its effect on understanding, and a concrete fix; compare revised wording with the original before accepting a change.
+- Grounding: explain relationships supported by the material and propose new ideas when requested; distinguish both from unprovided history and agreed follow-up commitments.
+- Context use: read references for the current task; multiple drafts, scorecards, and separate reviewers are optional.
 
-Ask it to smooth mechanical repetition and awkward transitions while keeping your voice, facts, numbers, and already clear sentences. Include earlier writing when you want to match your own style. Research qualifications, real three-part requirements, and repeated technical terms can all be necessary. Writing patterns guide editing; they do not establish AI authorship or guarantee detector results.
+```text
+$humanize-sepia 아래 회사 소개, 문항, 메모와 초안으로 글을 써줘.
+문항의 말을 되풀이하기보다 내가 어떤 판단을 했고 왜 의미 있는지 드러나게 해줘.
+모든 활동을 나열하지 말고, 필요한 경험과 근거를 골라 자연스럽게 이어줘.
+쓰고 싶은 방향과 자료: …
+```
+
+Specify a wording-only edit when that is what you need. You can provide earlier writing to guide the voice. Real three-part requirements and necessary technical repetition stay intact. Research writing preserves hypotheses and limitations; proposals preserve approval conditions and planned dates. Expression patterns help locate passages that need work. They do not establish AI authorship, guarantee detector outcomes, or demonstrate better writing than using no skill.
 
 ## Install for Codex
 
@@ -247,7 +255,7 @@ LICENSE
 
 ## Inspired by
 
-[Sepia](https://github.com/Nanako0129/sepia) · [humanize-korean](https://github.com/epoko77-ai/im-not-ai) · [no-ai-slop](https://github.com/petergyang/no-ai-slop) · [Humanizer](https://github.com/blader/humanizer) · [Slopbeth](https://github.com/ehmo/slopkit) · [Deslop](https://github.com/stephenturner/skills)
+[Sepia](https://github.com/Nanako0129/sepia) · [humanize-korean](https://github.com/epoko77-ai/im-not-ai) · [stop-slop](https://github.com/hardikpandya/stop-slop) · [no-ai-slop](https://github.com/petergyang/no-ai-slop) · [unslop](https://github.com/cursor/plugins) · [Humanizer](https://github.com/blader/humanizer) · [humanizer-skill](https://github.com/aboudjem/humanizer-skill) · [anti-ai-slop-writing](https://github.com/jalaalrd/anti-ai-slop-writing) · [humanize](https://github.com/aashaexo/soundshuman) · [Slopbeth](https://github.com/ehmo/slopkit) · [Deslop](https://github.com/stephenturner/skills)
 
 ## License
 
