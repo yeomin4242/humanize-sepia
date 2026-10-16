@@ -4,7 +4,7 @@
 
 **Write clear, natural Korean that says what you mean.** Humanize Sepia helps you turn ideas and experiences into a complete piece, organize your thoughts, and refine a draft while preserving your facts and voice. Use it to write something new, improve an existing text, or find out what needs work.
 
-Version: **0.3.3**. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
+Development version: **0.4.0-dev**, based on the 0.3.3 release. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
 
 ## What it does
 
@@ -45,6 +45,17 @@ Voice follows your explicit request, then the original or reference text, then t
 Changing channels preserves facts, numbers, roles, and the strength of evidence. Model-specific guidance follows the same priority.
 
 A 500-character cap counts each Korean character once. A 500-byte cap uses the specified counting convention, defaulting to two bytes per Korean character and one per ASCII character, including spaces. The destination’s rules and explicit space-inclusion instructions take priority; spaces are included by default. This two-byte convention is distinct from UTF-8 byte length. Length is filled with relevant source material, without invented facts or empty pledges.
+
+## Preparing 0.4
+
+This branch is a **0.4.0-dev draft**, based on 0.3.3. It has not been published as a final 0.4 release.
+
+- Contextual editing: inspect filler, padded lists, transitions, and repeated structures by their function and effect on the reader.
+- Voice preservation: use a relevant passage from the author's writing; retain clear sentences and purposeful repetition.
+- Research and proposals: preserve hypotheses, uncertainty, approval conditions, and future plans without adding experiences, results, or citations.
+- Conditional reading: load detailed naturalness guidance only when that task is requested.
+
+Ask it to smooth mechanical repetition and awkward transitions while keeping your voice, facts, numbers, and already clear sentences. Include earlier writing when you want to match your own style. Research qualifications, real three-part requirements, and repeated technical terms can all be necessary. Writing patterns guide editing; they do not establish AI authorship or guarantee detector results.
 
 ## Install for Codex
 
@@ -214,6 +225,7 @@ skills/humanize-sepia/
   agents/openai.yaml
   references/
     editing.md
+    naturalness.md
     drafting.md
     candidates.md
     writing-examples.md
@@ -235,7 +247,7 @@ LICENSE
 
 ## Inspired by
 
-[Sepia](https://github.com/Nanako0129/sepia) · [humanize-korean](https://github.com/epoko77-ai/im-not-ai)
+[Sepia](https://github.com/Nanako0129/sepia) · [humanize-korean](https://github.com/epoko77-ai/im-not-ai) · [no-ai-slop](https://github.com/petergyang/no-ai-slop) · [Humanizer](https://github.com/blader/humanizer) · [Slopbeth](https://github.com/ehmo/slopkit) · [Deslop](https://github.com/stephenturner/skills)
 
 ## License
 

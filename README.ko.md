@@ -4,7 +4,7 @@
 
 **전하고 싶은 내용을 자연스러운 한국어 글로 씁니다.** 경험과 메모에서 쓸 내용을 고르고, 생각이 잘 이어지도록 문단을 구성합니다. 초안이 있다면 내용과 말투를 살려 다듬습니다. 자기소개서는 지원 회사와 직무를 고려해 문항이 무엇을 확인하려는지 파악하고, 그에 맞는 경험을 글로 풀어냅니다.
 
-현재 버전은 **0.3.3**입니다. Codex와 Claude Code에서 사용할 수 있습니다. 지침과 예시는 한국어로 작성돼 있으며, 글쓰기에 필요한 기준은 `humanize-sepia` 폴더 안에 모두 들어 있습니다.
+이 브랜치의 개발 버전은 **0.4.0-dev**입니다. 기준 배포본은 0.3.3입니다. Codex와 Claude Code에서 사용할 수 있습니다. 지침과 예시는 한국어로 작성돼 있으며, 글쓰기에 필요한 기준은 `humanize-sepia` 폴더 안에 모두 들어 있습니다.
 
 ## 하는 일
 
@@ -45,6 +45,23 @@
 채널을 바꿔도 사실·수치·기여 범위·효과의 근거는 유지합니다. 모델별 지침도 이 우선순위를 따릅니다.
 
 자소서에서 `500자`는 500글자, `500바이트`는 한글 2바이트·영문/숫자/공백 1바이트 기준으로 구분합니다. 지원처의 계산 규칙과 공백 포함·제외 지시를 우선하며, 별도 지시가 없으면 공백 포함으로 계산합니다. 분량을 채우려고 없는 사실이나 빈 다짐을 추가하지 않습니다.
+
+## 0.4에서 준비하는 내용
+
+이 브랜치는 **0.4.0-dev 시안**입니다. 기준 배포본은 0.3.3이며 아직 0.4 정식 버전으로 배포하지 않았습니다.
+
+- 기계적인 표현 점검: 불필요한 강조·나열·연결·반복 구조를 구간의 역할과 독자의 이해를 기준으로 수정
+- 문체 보존: 예전 글의 어휘·리듬·격식 참고, 이미 명료한 문장과 의미 있는 반복 유지
+- 연구·제안 글: 가설·불확실성·적용 조건·예정 사항 보존, 없는 경험·성과·인용 추가 방지
+- 필요한 자료만 읽기: 자세한 표현 점검은 요청이 있을 때 해당 참고 자료만 확인
+
+```text
+$humanize-sepia 아래 글의 기계적인 반복과 어색한 연결을 다듬어줘.
+내 말투와 실제 경험·수치는 유지하고, 이미 자연스러운 문장은 그대로 둬.
+글: …
+```
+
+문체를 맞추고 싶다면 예전에 직접 쓴 글도 함께 보내 주세요. 연구계획서에서는 “가능성이 있다” 같은 한계를, 제안서에서는 승인 조건과 예정 시점을 그대로 유지합니다. 세 요건이나 전문용어 반복처럼 필요한 표현은 살립니다. 표현 패턴은 읽기 어려운 부분을 찾는 단서이며 AI 작성 여부나 탐지기 통과를 보증하지 않습니다.
 
 ## Codex 설치
 
@@ -215,6 +232,7 @@ skills/humanize-sepia/
   agents/openai.yaml
   references/
     editing.md
+    naturalness.md
     drafting.md
     candidates.md
     writing-examples.md
@@ -236,7 +254,7 @@ LICENSE
 
 ## Inspired by
 
-[Sepia](https://github.com/Nanako0129/sepia) · [humanize-korean](https://github.com/epoko77-ai/im-not-ai)
+[Sepia](https://github.com/Nanako0129/sepia) · [humanize-korean](https://github.com/epoko77-ai/im-not-ai) · [no-ai-slop](https://github.com/petergyang/no-ai-slop) · [Humanizer](https://github.com/blader/humanizer) · [Slopbeth](https://github.com/ehmo/slopkit) · [Deslop](https://github.com/stephenturner/skills)
 
 ## 라이선스
 
