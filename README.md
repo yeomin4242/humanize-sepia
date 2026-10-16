@@ -42,7 +42,7 @@ Voice follows your explicit request, then the original or reference text, then t
 | Social posts | Concise 해요체, short sentences and paragraphs |
 | Job applications | Restrained 합니다체, prose answering the question |
 
-Changing channels preserves facts, numbers, roles, and the strength of evidence. Model-specific guidance follows the same priority.
+Changing channels preserves facts, numbers, roles, and the strength of evidence. Use the title given in the material; a person’s role does not establish their rank. Model-specific guidance follows the same priority.
 
 A 500-character cap counts each Korean character once. A 500-byte cap uses the specified counting convention, defaulting to two bytes per Korean character and one per ASCII character, including spaces. The destination’s rules and explicit space-inclusion instructions take priority; spaces are included by default. This two-byte convention is distinct from UTF-8 byte length. Length is filled with relevant source material, without invented facts or empty pledges.
 
@@ -53,8 +53,8 @@ This branch contains **0.4.0-dev**, based on 0.3.3. It has not been published as
 - Writing: choose the point the reader needs to understand and the judgments, actions, and evidence that support it; improve connections and give important material more space.
 - Editing: fix agreement, modifier placement, nominalization, passive constructions, and redundancy where needed; retain clear long sentences, individual voice, and uncertainty.
 - Review and revision: connect each problem to a passage, its effect on understanding, and a concrete fix; compare revised wording with the original before accepting a change.
-- Grounding: distinguish an action’s function from new observations or thoughts. Retain provided judgments without turning current interests into past decisions or lessons. Preserve recorded criteria, plans, and actual use as distinct states, and name the person responsible when approval, sending, or execution changes hands.
-- Research openings: use provided evidence within its scope, or start with the question to investigate; avoid inventing common beliefs, industry conditions, or literature-wide research gaps.
+- Grounding: distinguish an artifact’s content and function from its delivery, actual use, and observed effects. Retain provided judgments without turning current interests into past decisions or lessons. Preserve recorded criteria, plans, execution, and the person responsible for each action.
+- Research: start with the scope of provided evidence or the question to investigate. Distinguish interpretation and association from causation, and preserve the stated conditions and strength of conclusions. Avoid inventing industry conditions or literature-wide research gaps.
 - Context use: read references for the current task; multiple drafts, scorecards, and separate reviewers are optional.
 
 ```text
