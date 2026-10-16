@@ -29,6 +29,7 @@ It grounds the qualities you want to show in your actual experience. It keeps yo
 - Effects and outcomes: adjacent evidence from measurements, observations, examples, or feedback; intended purpose distinguished from observed effect
 - Endings: empty pledges removed; required plans and protected sentences preserved
 - Editing scope: wording, structure, and review handled separately; satisfactory original passages retained
+- Output format: a body-only request returns the specified paragraphs without a title, separate salutation, or commentary; explicitly requested titles and salutations are retained
 - Application length: aim as close to the cap as possible, targeting 495–500 characters for a 500-character cap; explicit requests to ignore length disable counting and length adjustment
 - Review: one pass by default; additional checks limited to explicit requests or remaining factual and required-condition errors
 
@@ -54,7 +55,7 @@ This branch contains **0.4.0-dev**, based on 0.3.3. It has not been published as
 - Editing: fix agreement, modifier placement, nominalization, passive constructions, and redundancy where needed; retain clear long sentences, individual voice, and uncertainty.
 - Review and revision: connect each problem to a passage, its effect on understanding, and a concrete fix; compare revised wording with the original before accepting a change.
 - Grounding: distinguish an artifact’s content and function from its delivery, actual use, and observed effects. Retain provided judgments without turning current interests into past decisions or lessons. Preserve recorded criteria, plans, execution, and the person responsible for each action.
-- Research: start with the scope of provided evidence or the question to investigate. Distinguish interpretation and association from causation, and preserve the stated conditions and strength of conclusions. Avoid inventing industry conditions or literature-wide research gaps.
+- Research: distinguish prior observations, the exact limits of what was tested, and the new question. Lack of causal testing does not mean association was never examined. Preserve conditions and the strength of conclusions without inventing industry conditions or literature-wide research gaps.
 - Context use: read references for the current task; multiple drafts, scorecards, and separate reviewers are optional.
 
 ```text
