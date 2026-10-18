@@ -2,258 +2,127 @@
 
 [English](README.md) · [한국어](README.ko.md)
 
-**Write clear, natural Korean that says what you mean.** Humanize Sepia helps you turn ideas and experiences into a complete piece, organize your thoughts, and refine a draft while preserving your facts and voice. Use it to write something new, improve an existing text, or find out what needs work.
+**A skill for writing and editing Korean from experiences, notes, and drafts.** It helps select relevant material and organize it for your reader while working within your facts and voice. Use it for job applications, business emails, reports, proposals, and research plans.
 
-Development version: **0.4.0-dev**, based on the 0.3.3 release. The skill works in Codex and Claude Code. Its instructions and examples are primarily Korean. All writing guidance is included in the `humanize-sepia` folder.
+Version **0.4.1** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
 
-## What it does
+## What you can request
 
-| What you need | Example request |
+| Task | Example request |
 |---|---|
-| A complete piece from your material | “Use this experience and draft to write what I want to say.” |
-| An edited draft | “Keep my voice and improve only the wording,” or “reorganize the piece.” |
-| Feedback without edits | “Explain what needs work and why, without changing the text.” |
-| Improvement through critique | “Check the reasoning and evidence, revise what needs work, and verify the result.” |
+| Write from source material | “Use these notes to write what I want to say.” |
+| Edit a draft | “Keep my voice and fix awkward sentences.” |
+| Reorganize a piece | “Preserve the facts and intent, and rebuild the flow.” |
+| Review without editing | “Identify problem passages and explain why.” |
+| Revise through critique | “Check the reasoning and evidence, make needed edits, and verify the result.” |
 
-Use `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you need. One skill handles the requested result and editing scope. You can also ask it to write a piece and then examine it critically. A light wording edit does not trigger repeated critique. The shared guide is used with the references needed for the task. Drafting from notes or reorganizing a piece uses the drafting reference; sentence-level changes use the editing reference. The skill does not load every reference or generate multiple drafts by default.
+One skill handles the requested scope. A wording edit does not require multiple drafts or a separate reviewer. For drafting and restructuring, the instructions call for one revision pass after the draft; further iteration or independent review follows your request.
 
-The skill starts with what the reader should understand and chooses material that explains it. Rather than listing activities, it explains how the actions, judgments, and changes in your material relate. When you request alternatives or need to choose between different judgments or lessons, it writes complete versions and compares what each conveys. Changes in wording or order alone do not count as a new perspective. If an explanation is weak or important content is scattered, it writes a coherent new version using the relevant evidence. It compares actual alternatives before accepting a change and keeps the earlier text when rewriting does not help. Reference examples illustrate these choices; they are not validated answers or evidence of your preferences.
+For job applications, the focus is on what the question is trying to assess, supported by your judgments, actions, and evidence. Company and role information can provide context. Required answers, example counts, and length limits remain writing constraints.
 
-For job application essays, it considers the company and role to understand what the question is trying to assess. A question about a “different perspective” may call for showing what you noticed about a problem and why you chose a particular approach. The essay must also meet the stated length limit, number of examples, and required parts of the question.
+## Writing and editing guidance
 
-It grounds the qualities you want to show in your actual experience. It keeps your actions distinct from other people's approval and the team's results. If essential facts are missing, it asks a focused question or drafts from confirmed information. It can also ask about a decision that would make your account more meaningful, such as why you chose an approach. Requests to write immediately or return only the text take priority, and questions stay outside the essay.
+- Separate required answers from optional source details. Choose evidence that explains the judgment instead of reproducing every note.
+- Distinguish your work from colleagues’ roles, review from approval, plans from execution, and actual use from observed effects.
+- Preserve provided thoughts and their timing without inventing motivations, outcomes, or causal claims.
+- In research writing, distinguish prior findings, the new question, the stated method, and the limits of the conclusions. Avoid unsupported generalizations about research gaps.
+- For wording edits, use the original meaning and voice as the reference. For structural edits, preserve necessary facts and conditions. Technical terms and useful repetition can stay.
+- Choose voice and format from your current request, then the original or reference text, then channel defaults. A body-only request excludes separate titles and commentary.
 
-## Writing rules
+Application character counts and byte counts are distinct; the destination’s counting rules take priority. Instructions discourage padding with invented facts or empty promises. Exact length checks depend on the tools available in the host.
 
-- Lists: compact entries with consistent noun or phrase endings; familiar Sino-Korean terms retained
-- Effects and outcomes: adjacent evidence from measurements, observations, examples, or feedback; intended purpose distinguished from observed effect
-- Endings: empty pledges removed; required plans and protected sentences preserved
-- Editing scope: wording, structure, and review handled separately; satisfactory original passages retained
-- Output format: a body-only request returns the specified paragraphs without a title, separate salutation, or commentary; explicitly requested titles and salutations are retained
-- Application length: aim as close to the cap as possible, targeting 495–500 characters for a 500-character cap; explicit requests to ignore length disable counting and length adjustment
-- Review: one pass by default; additional checks limited to explicit requests or remaining factual and required-condition errors
+## Current evidence and limitations
 
-Voice follows your explicit request, then the original or reference text, then the channel default.
+Limited comparisons using fictional cases produced outputs that preserved facts, roles, approval states, and requested formats. **They did not establish better writing than the model without the skill or version 0.3.3.** Repetition and abstract wording can remain. Preservation of facts and intent is not guaranteed for every input.
 
-| Channel | Default Korean voice and format |
-|---|---|
-| Reports and work updates | Neutral wording, compact lists for parallel points |
-| Business email | Polite 합니다체, purpose and requests first |
-| Blogs and explainers | 해요체, paragraphs for explanations and compact lists for steps |
-| Social posts | Concise 해요체, short sentences and paragraphs |
-| Job applications | Restrained 합니다체, prose answering the question |
+Model-specific writing gains and lower latency are not established features. Expression patterns are editing cues, not evidence of AI authorship or a guarantee of passing a detector. Check the final text against your actual experience, numbers, and conditions.
 
-Changing channels preserves facts, numbers, roles, and the strength of evidence. Use the title given in the material; a person’s role does not establish their rank. Model-specific guidance follows the same priority.
+## Install
 
-A 500-character cap counts each Korean character once. A 500-byte cap uses the specified counting convention, defaulting to two bytes per Korean character and one per ASCII character, including spaces. The destination’s rules and explicit space-inclusion instructions take priority; spaces are included by default. This two-byte convention is distinct from UTF-8 byte length. Length is filled with relevant source material, without invented facts or empty pledges.
+### Codex
 
-## Changes in the 0.4 development version
-
-This branch contains **0.4.0-dev**, based on 0.3.3. It has not been published as a final 0.4 release.
-
-- Writing: choose the point the reader needs to understand and the judgments, actions, and evidence that support it; improve connections and give important material more space.
-- Editing: fix agreement, modifier placement, nominalization, passive constructions, and redundancy where needed; retain clear long sentences, individual voice, and uncertainty.
-- Review and revision: connect each problem to a passage, its effect on understanding, and a concrete fix; compare revised wording with the original before accepting a change.
-- Grounding: distinguish an artifact’s content and function from its delivery, actual use, and observed effects. Retain provided judgments without turning current interests into past decisions or lessons. Preserve recorded criteria, plans, execution, and the person responsible for each action.
-- Research: distinguish prior observations, the exact limits of what was tested, and the new question. Lack of causal testing does not mean association was never examined. Preserve conditions and the strength of conclusions without inventing industry conditions or literature-wide research gaps.
-- Context use: read references for the current task; multiple drafts, scorecards, and separate reviewers are optional.
+Ask Codex to install the pinned version:
 
 ```text
-$humanize-sepia 아래 회사 소개, 문항, 메모와 초안으로 글을 써줘.
-문항의 말을 되풀이하기보다 내가 어떤 판단을 했고 왜 의미 있는지 드러나게 해줘.
-모든 활동을 나열하지 말고, 필요한 경험과 근거를 골라 자연스럽게 이어줘.
-쓰고 싶은 방향과 자료: …
+$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.4.1/skills/humanize-sepia
 ```
 
-Specify a wording-only edit when that is what you need. You can provide earlier writing to guide the voice. Real three-part requirements and necessary technical repetition stay intact. Research writing preserves hypotheses and limitations; proposals preserve approval conditions and planned dates. Expression patterns help locate passages that need work. They do not establish AI authorship, guarantee detector outcomes, or demonstrate better writing than using no skill.
-
-## Install for Codex
-
-Ask Codex to install the skill:
-
-```text
-$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/main/skills/humanize-sepia
-```
-
-For a manual user installation, clone the repository and copy the skill folder. If a folder named `humanize-sepia` is already installed, move it to a backup location first.
+For a manual installation, clone the repository and copy the skill folder:
 
 ```bash
-git clone https://github.com/yeomin4242/humanize-sepia.git
+git clone --branch v0.4.1 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
 mkdir -p ~/.agents/skills
 cp -R humanize-sepia/skills/humanize-sepia ~/.agents/skills/
 ```
 
-For project-local use, place the folder at `.agents/skills/humanize-sepia` in your project.
+For project-local use, place it at `.agents/skills/humanize-sepia` in the project.
 
-## Install for Claude Code
+### Claude Code
 
-Claude Code loads personal skills from `~/.claude/skills/`. Clone the repository and copy the skill to invoke it as `/humanize-sepia`. Move any existing installation to a backup location first.
+From the same cloned repository, copy the skill to your personal skill directory:
 
 ```bash
-git clone https://github.com/yeomin4242/humanize-sepia.git
 mkdir -p ~/.claude/skills
 cp -R humanize-sepia/skills/humanize-sepia ~/.claude/skills/
 ```
 
-For project-local use, place it at `.claude/skills/humanize-sepia`. If you use both tools, update both installed copies to the same version.
+For project-local use, place it at `.claude/skills/humanize-sepia`.
+
+**When updating, move the existing skill folder to a backup location before replacing it.** Avoid copying a new folder inside an existing installation. If you use both tools, keep both copies on the same version.
 
 ## Use
 
-Invoke `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you want to write. Share the message, audience, and tone you have in mind, along with any experiences, notes, or draft you want to use. You can write naturally, without a fixed template. “쓰고자 하는 방향” (“what I want to write”) is an optional label.
+Invoke `$humanize-sepia` in Codex or `/humanize-sepia` in Claude Code and describe what you need. **There is no required input template or order.** Include your reader, direction, question, source material, experience, or draft as needed.
 
-The company and experience below are fictional examples. In Claude Code, replace `$humanize-sepia` with `/humanize-sepia` in the examples.
+This example uses a fictional experience. In Claude Code, replace the invocation with `/humanize-sepia`.
 
 ```text
 $humanize-sepia
 
-작은 가게들이 입점하는 온라인 장터의 운영 담당자로 지원하려고 해.
-판매자 문의에 답하고, 판매자들이 겪는 불편을 찾아 개선하는 일이래.
-자소서 문항은 “기존 방식과 다르게 접근해 문제를 해결한 경험”이야.
+온라인 장터의 판매자 지원 직무에 지원하려고 해.
+문항은 “기존 방식과 다르게 접근해 문제를 해결한 경험”이야.
 
-아르바이트하던 매장에서는 직원마다 안내 내용이 달라서 손님이 같은
-내용을 다시 묻곤 했어. 자주 들어오는 질문과 답변을 표로 정리했어.
-매니저가 확인한 뒤 교대하는 동료들과 함께 사용하기 시작했고,
-동료들은 답변을 찾기 편해졌다고 했어. 같은 질문이 얼마나 줄었는지는
-따로 세어 보지 않았어.
+아르바이트하던 매장에서는 직원마다 안내가 달라 손님이 다시 묻곤 했어.
+자주 들어오는 질문과 답변을 표로 정리했고, 매니저가 확인한 뒤
+교대 동료들과 함께 사용했어. 동료 두 명은 답변을 찾기 편해졌다고 했어.
+문의가 얼마나 줄었는지는 세어 보지 않았어.
 
-안내 내용이 제각각이라는 점을 발견하고, 동료들이 함께 참고할 수 있는
-표로 정리한 과정을 보여 주고 싶어.
-초안에는 “남다른 관찰력으로 혁신적인 개선을 이루었다”고 썼는데,
-너무 거창해 보여. 내가 한 일이 잘 드러나도록 자연스럽게 써줘.
-공백 포함 500자 이내로, 담담한 말투면 좋겠어.
+동료들이 함께 참고할 기준을 만든 과정을 보여 주고 싶어.
+초안의 “혁신적인 개선을 이루었다”는 표현은 너무 거창해 보여.
+내가 한 일이 드러나게 담담한 말투로, 공백 포함 500자 이내로 써줘.
 ```
 
-A draft can be a starting point for further writing. The skill keeps useful wording and voice, develops the piece around your intended message, and follows the scope you set. To explore your material first, ask it to start with one question that would help explain your judgment.
-
+You can specify a narrow edit or ask for a review:
 
 ```text
-$humanize-sepia 내용과 말투는 그대로 두고, 어색한 문장만 다듬어줘.
+$humanize-sepia 내용과 말투는 유지하고 두 번째 문단만 짧게 다듬어줘.
 숫자와 인용문은 바꾸지 말아줘.
 글: …
 ```
 
 ```text
-$humanize-sepia 글은 고치지 말고, 어디가 어색하거나 부족한지 알려줘.
+$humanize-sepia 글은 고치지 말고, 독자가 이해하기 어려운 부분을 짚어줘.
+실제 오류와 선택적으로 바꿀 부분을 나눠 알려줘.
 글: …
 ```
 
 ```text
-$humanize-sepia 하고 싶은 말과 실제 있었던 일은 유지해줘.
-글의 구성부터 새로 잡아서 처음부터 다시 써줘.
+$humanize-sepia 논리와 근거를 비판적으로 검토하고 필요한 부분을 고쳐줘.
+수정 후에는 지적한 문제가 해결됐는지와 사실·조건이 유지됐는지 확인해줘.
 글: …
 ```
 
-You can follow up with a request such as “make only the second paragraph shorter.” The skill uses the latest text, revises the requested passage, and keeps the rest unchanged.
+Earlier writing or an edit you liked can provide a reference. Explain what you preferred to help choose guidance for the current piece. Installing the skill does not automatically save preferences or edit history. Provide relevant records again when using another conversation.
 
-### Automatic model guidance
+### Model profiles
 
-When the host exposes the exact current model name, the skill reads **one matching profile**. It does not load every model profile.
+Profiles are included for Sonnet 5.5, Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, and GPT-6 Astra. **When the host provides the exact current model name, the instructions select one matching profile.** Unknown or unlisted models use the shared guidance. This is an instruction-selection rule, not guaranteed automatic detection in every environment.
 
-| Current model | Additional guidance |
-|---|---|
-| Claude Sonnet 5.5 | Finish the requested scope and avoid unrequested additions |
-| Claude Opus 5.5 | Separate material from instructions and retain settled decisions in follow-ups |
-| GPT-6.1 Sol | Shared Sol guidance: connect the main point to evidence and follow the output format |
-| GPT-6 Sol (6.0 Sol) | Reuse the same Sol guidance |
-| GPT-6 Luna (6.0 Luna) | Keep focused tasks concise while preserving required facts and output scope |
-| GPT-6 Astra | Limit unnecessary questions, formatting, and extra reviews |
-
-The official IDs are `gpt-6.1-sol`, `gpt-6-sol`, and `gpt-6-luna`. Guidance selection also recognizes `gpt-6.0-sol` and `gpt-6.0-luna` as the corresponding 6 Sol and 6 Luna profiles; this does not change CLI model IDs. Both Sol versions share one profile because the official guide does not establish separate Korean writing instructions for them. Luna uses a concise adaptation for focused tasks, not demonstrated model-specific writing traits. See the official [Sol](https://developers.openai.com/api/docs/models/gpt-6-sol) and [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) model pages.
-
-If the exact name is unavailable or unsupported, the skill uses its common instructions. It does not infer the running model from saved defaults, which can differ from the active model. Each invocation selects guidance using the model identity available at that time.
-
-When the host does not expose the model, add `모델 지침: gpt-6.1-sol` to your request to select guidance manually. This does not switch the actual model or reasoning effort. To check the selection, ask which profile was applied and whether it came from the host, a manual choice, or the common fallback.
-
-The profiles adapt official guidance from [OpenAI for GPT-6](https://developers.openai.com/api/docs/guides/latest-model) and Anthropic's [general prompting guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), [Sonnet 5.5 guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5), and [Opus 5.5 guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5). Shared instructions cover focused paragraphs and concrete language. Claude profiles distinguish deliverables, source material, and examples. Sonnet emphasizes completing the requested scope and stopping when done; Opus emphasizes grounding long inputs and limiting follow-up edits to the relevant scope. GPT profiles emphasize connecting the main point to evidence and limiting excessive formatting and stock conclusions.
-
-Coding and agentic results in the official guides are not evidence of Korean writing performance. OpenAI presents behaviors observed with Astra as a starting point across GPT-6; these are not established Sol- or Luna-specific writing traits. The profiles do not guarantee better prose or lower latency.
-
-### Faster one-off requests
-
-For a single ordinary draft, wording edit, or review, paste the prompt for your model and your material **in one message**, without invoking the skill. Use the skill for iterative critique, comparing alternatives, or maintaining writing preferences.
-
-**Codex/GPT:** a compact instruction followed by free-form material.
-
-```text
-이번 요청에는 스킬 파일을 읽지 말고 제공한 자료로 한국어 글을 작성·수정·검토해줘. 독자와 전하려는 핵심을 파악하고 요청한 범위·형식·분량을 지켜. 자기소개서는 문항이 확인하려는 내용을 경험의 판단·행동·근거로 보여주되 필수 답변과 사례 수를 지켜. 자소서 분량은 제한 상한에 최대한 근접하게 맞춰줘. 자와 바이트를 구분하고 바이트 제한은 한글 2·영문/숫자/공백 1바이트로 계산하되 제출처 규칙을 우선해줘. 글자 수 제한 신경 쓰지 말라는 명시적 요청이 있으면 계산과 분량 조정은 생략해줘. 요점과 이를 설명하는 근거가 이어지는 문단으로 쓰고, 구체적인 동사를 사용해. 통용 한자어는 유지하고 목록은 항목명과 짧은 명사형·구로 정리해줘. 효과를 말하면 인접 문장에 실제 근거를 붙이고 행동 목적과 확인된 효과를 구분해줘. 내용 없는 마무리 다짐은 빼되 필수 포부와 보호 문장은 유지해줘. 말투는 사용자 요청·원문·채널 기본값 순으로 적용하고, 보고서는 중립적 개조식, 메일·자소서는 합니다체, 블로그·SNS는 해요체를 기본으로 써줘. 원문 말투는 살려줘. 역할·시점·수치·개인/팀 기여·제안/실행을 구분하고 확인된 사실로 써줘. 없는 동기·성과·인과는 만들지 마. 성과를 주장하지 않을 때 미측정 사실을 본문에 덧붙일 필요는 없어. 검토만 요청했다면 문제 구간·이유·수정 방향을 짚고 실제 문제와 선택 제안을 구분해. 초안의 당시 생각은 다른 메모에 빠졌다는 이유만으로 오류가 아니야. 자료로 완성할 수 있으면 요청한 결과물을 제공하고, 핵심 답이 달라질 정보만 물어봐.
-
-[여기에 문항, 메모, 초안 등 쓰고 싶은 내용을 자유롭게 입력]
-```
-
-**Claude Code/Claude:** specify the deliverable and scope, and delimit longer source material.
-
-```text
-아래 자료와 원하는 방향을 읽고 요청한 한국어 글을 완성하거나 지정한 범위만 다듬어줘. 내 현재 요청, 문항·기업 소개·경험 메모·초안, 말투를 참고할 예문을 구분해서 사용해. 독자와 글의 용도를 표현 선택의 기준으로 삼아줘. 자기소개서는 문항이 확인하려는 내용을 판단·행동·근거로 연결하고 필수 답변·사례 수·분량을 지켜. 자소서 분량은 제한 상한에 최대한 근접하게 맞춰줘. 자와 바이트를 구분하고 바이트 제한은 한글 2·영문/숫자/공백 1바이트로 계산하되 제출처 규칙을 우선해줘. 글자 수 제한 신경 쓰지 말라는 명시적 요청이 있으면 계산과 분량 조정은 생략해줘. 글은 중심 내용이 분명하고 문장이 자연스럽게 이어지도록 써줘. 통용 한자어는 유지하고 목록은 항목명과 짧은 명사형·구로 정리해줘. 효과를 말하면 인접 문장에 실제 근거를 붙이고 행동 목적과 확인된 효과를 구분해줘. 내용 없는 마무리 다짐은 빼되 필수 포부와 보호 문장은 유지해줘. 말투는 사용자 요청·원문·채널 기본값 순으로 적용하고, 보고서는 중립적 개조식, 메일·자소서는 합니다체, 블로그·SNS는 해요체를 기본으로 써줘. 예문의 말투와 설명 방식은 참고하되 예문 속 경험은 현재 글의 사실로 가져오지 마. 역할·수치·시점·개인/팀 기여를 구분하고, 확인되지 않은 동기·행동·성과는 만들지 마. 성과를 주장하지 않을 때 미측정 사실을 본문에 덧붙일 필요는 없어. 검토만 요청했다면 실제 문제와 선택 제안을 구분하고, 같은 원인의 지적을 묶어 구간·이유·수정 방향을 간결하게 짚어줘. 초안의 당시 생각은 메모에 없다는 이유만으로 오류가 아니야. 필요한 작업과 확인을 마치면 요청한 결과로 끝내고, 본문만 요청했다면 본문만 제공해줘.
-
-<자료>
-[문항, 기업 정보, 경험 메모, 초안, 원하는 방향을 자유롭게 입력]
-</자료>
-```
-
-These are starting points based on [OpenAI's GPT-6 prompting guidance](https://developers.openai.com/api/docs/guides/latest-model) and [Anthropic's Claude prompting guidance](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices). They are not a claim that either model writes better.
-
-## Use edits you liked
-
-Share an edit you accepted or a piece you like, along with what made it work for you. An expression you rejected alongside the version you accepted can help show what to emphasize or leave out. The skill turns the actual change and your reason into a few brief criteria relevant to the current piece. For example, you might prefer showing what you changed before naming a personal strength. When useful, it consults one relevant passage. Facts and experiences from reference pieces stay separate from the new material.
-
-Ask it to summarize an accepted edit and your reason if you want to use them again. The record covers the audience and purpose, a writing criterion, the passage and reason supporting it, and when it applies. Specify a location if you want a file. For later writing, it uses the relevant criteria without reprocessing your entire history.
-
-You can use the skill without reference writing. Your current request takes priority over past preferences. To reuse choices in another conversation, provide the record file or relevant content again. Installing the skill does not automatically save editing history or learn your preferences. Matching your voice and making the content persuasive are checked separately.
-
-## Improve through critique
-
-Ask for an adversarial pass when you want an existing text examined and improved. The skill reads as a skeptical reader: does the text answer the question, do the actions and evidence support its claims, and do the explanations hold together? It starts with the passages where changes would help most, writes actual deletions, combinations, or replacement sentences, and compares them with the original. It then checks whether the revision resolved the identified issues.
-
-```text
-$humanize-sepia 아래 글을 독자의 입장에서 비판적으로 검토하고 고쳐줘.
-내가 전하려는 말이 잘 드러나는지, 주장에 근거가 충분한지,
-앞뒤 설명이 어긋나지 않는지 먼저 살펴봐.
-수정한 뒤 지적한 문제가 해결됐는지 다시 확인해줘.
-사실과 말투는 유지해줘.
-글: …
-```
-
-It checks whether a criticism is valid before applying it. For example, feedback that “the result needs numbers” is checked against what the question actually requires. If a confirmed response from colleagues is sufficient, it uses that evidence rather than inventing an unmeasured result.
-
-You can include feedback you have already received. The skill connects it to a particular passage, the reader's difficulty, and an actual revision. Broad comments such as “make it more impressive” do not justify rewriting the whole piece. Even a text without factual errors can benefit from clearer emphasis or connections; the skill can compare an alternative and retain the original when the change does not help. A request for review alone returns feedback without edits, distinguishing problems from optional suggestions.
-
-When you allow changes to the structure, it can compare the judgments or lessons the same material supports. If there is a passage to improve, it writes an alternative before deciding whether to keep the original. Factual accuracy alone does not turn an improvement request into feedback without revision. It uses the relevant evidence to develop one coherent point. Wording-only edits stay within the requested scope. If you ask to see two alternatives, it returns both rather than merging them into one.
-
-If the environment supports a separate reviewer, you can ask for a reader's critique in a fresh context. The reviewer receives the request, source material, and draft rather than the writer's self-assessment. Reviewing in the same context and simulating a reader with AI are distinguished from an actual reader's evaluation.
-
-After revision, it checks both whether the identified problem is resolved and whether important content, facts, and voice remain intact. It accepts useful changes, repairs individual changes that went wrong, and returns to the previous verified draft if the piece became worse overall.
-
-The default is one critique, revision, and verification pass. Further checks are limited to your explicit request or passages with remaining factual errors or unmet required conditions. Good text can stay unchanged. If an essential fact is missing or a revision does not help, the skill identifies the passage and reason, then stops. Pass counts and self-assigned scores do not establish quality. A separate reviewer is used only on an explicit request, with one reviewer by default. Ordinary text review uses no separate agents or scripts. Mechanical checks such as exact character counts use only the minimum tools permitted by the host.
-
-The result starts with the text, followed by brief notes on important changes or facts to confirm. Your requested format takes priority. Check the final text against your actual experience and numbers. AI-detector scores are not a measure of writing quality.
+You can also request a profile explicitly, such as `모델 지침: gpt-6.1-sol`. This does not change the execution model or reasoning effort. Both Sol versions share a profile. To check selection, ask for only the applied profile and the basis for choosing it.
 
 ## Repository
 
-```text
-skills/humanize-sepia/
-  SKILL.md
-  agents/openai.yaml
-  references/
-    editing.md
-    naturalness.md
-    drafting.md
-    candidates.md
-    writing-examples.md
-    preferences.md
-    applications.md
-    improving.md
-    channels.md
-    models/
-      claude-sonnet-5-5.md
-      claude-opus-5-5.md
-      gpt-sol.md
-      gpt-6-luna.md
-      gpt-6-astra.md
-  LICENSE
-README.md
-README.ko.md
-LICENSE
-```
+The root contains the two READMEs and license. The installable skill is in `skills/humanize-sepia`. `SKILL.md` links shared guidance to task-specific references. `references/` holds writing, editing, review, and channel guidance; `agents/openai.yaml` provides Codex display metadata.
 
 ## Inspired by
 

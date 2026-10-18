@@ -10,3 +10,6 @@ __pycache__/
 /work/
 /docs/evaluations/
 /docs/0.3.3-*.md
+
+# Local release preparation notes.
+/PREPARATION-*.md
