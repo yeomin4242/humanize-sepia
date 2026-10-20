@@ -4,7 +4,7 @@
 
 **A skill for writing and editing Korean from experiences, notes, and drafts.** It helps select relevant material and organize it for your reader while working within your facts and voice. Use it for job applications, business emails, reports, proposals, and research plans.
 
-Version **0.4.1** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
+Version **0.4.2** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
 
 ## What you can request
 
@@ -16,7 +16,7 @@ Version **0.4.1** · Codex / Claude Code · Instructions and examples are primar
 | Review without editing | “Identify problem passages and explain why.” |
 | Revise through critique | “Check the reasoning and evidence, make needed edits, and verify the result.” |
 
-One skill handles the requested scope. A wording edit does not require multiple drafts or a separate reviewer. For drafting and restructuring, the instructions call for one revision pass after the draft; further iteration or independent review follows your request.
+One skill handles the requested scope. A wording edit does not require multiple drafts or a separate reviewer. Writing and editing end with a check of facts, required answers, and format. Critique-based revision uses one review, edit, and verification pass; further iteration or independent review follows your request.
 
 For job applications, the focus is on what the question is trying to assess, supported by your judgments, actions, and evidence. Company and role information can provide context. Required answers, example counts, and length limits remain writing constraints.
 
@@ -25,15 +25,18 @@ For job applications, the focus is on what the question is trying to assess, sup
 - Separate required answers from optional source details. Choose evidence that explains the judgment instead of reproducing every note.
 - Distinguish your work from colleagues’ roles, review from approval, plans from execution, and actual use from observed effects.
 - Preserve provided thoughts and their timing without inventing motivations, outcomes, or causal claims.
+- Distinguish general statements of intent from specific work commitments. Preserve provided plans and present requested new approaches as proposals.
 - In research writing, distinguish prior findings, the new question, the stated method, and the limits of the conclusions. Avoid unsupported generalizations about research gaps.
 - For wording edits, use the original meaning and voice as the reference. For structural edits, preserve necessary facts and conditions. Technical terms and useful repetition can stay.
 - Choose voice and format from your current request, then the original or reference text, then channel defaults. A body-only request excludes separate titles and commentary.
+
+Version 0.4.2 consolidates repeated instructions across the shared guidance and references. Research guidance focuses on the relationship between questions, evidence, and limitations rather than fixed sentence counts. For experience-and-learning questions with no required order, it offers an example that places the lesson at the decision change and ends with a confirmed result. Review guidance distinguishes unsupported role or outcome claims from optional wording suggestions.
 
 Application character counts and byte counts are distinct; the destination’s counting rules take priority. Instructions discourage padding with invented facts or empty promises. Exact length checks depend on the tools available in the host.
 
 ## Current evidence and limitations
 
-Limited comparisons using fictional cases produced outputs that preserved facts, roles, approval states, and requested formats. **They did not establish better writing than the model without the skill or version 0.3.3.** Repetition and abstract wording can remain. Preservation of facts and intent is not guaranteed for every input.
+Limited comparisons using fictional cases produced outputs that preserved facts, roles, approval states, and requested formats. **They did not establish better writing than the model without the skill or version 0.4.1.** Version 0.4.2 reduces repeated guidance and input length; it has not established a reduction in the number of cases with redundant summaries. Repetition and abstract wording can remain. Preservation of facts and intent is not guaranteed for every input.
 
 Model-specific writing gains and lower latency are not established features. Expression patterns are editing cues, not evidence of AI authorship or a guarantee of passing a detector. Check the final text against your actual experience, numbers, and conditions.
 
@@ -44,13 +47,13 @@ Model-specific writing gains and lower latency are not established features. Exp
 Ask Codex to install the pinned version:
 
 ```text
-$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.4.1/skills/humanize-sepia
+$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.4.2/skills/humanize-sepia
 ```
 
 For a manual installation, clone the repository and copy the skill folder:
 
 ```bash
-git clone --branch v0.4.1 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
+git clone --branch v0.4.2 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
 mkdir -p ~/.agents/skills
 cp -R humanize-sepia/skills/humanize-sepia ~/.agents/skills/
 ```
@@ -67,6 +70,8 @@ cp -R humanize-sepia/skills/humanize-sepia ~/.claude/skills/
 ```
 
 For project-local use, place it at `.claude/skills/humanize-sepia`.
+
+If personal and project copies share the same name, ask for the actual `SKILL.md` path and version to confirm which copy was loaded.
 
 **When updating, move the existing skill folder to a backup location before replacing it.** Avoid copying a new folder inside an existing installation. If you use both tools, keep both copies on the same version.
 
