@@ -3,7 +3,7 @@ name: humanize-sepia
 description: 한국어 글을 작성·윤문·검토하고 AI 티로 느껴지는 반복·번역투를 다듬는다. 경험·메모·초안의 사실과 문체를 지키며, 자기소개서는 문항·직무에, 메일·보고서·블로그·SNS는 채널에 맞춘다.
 allowed-tools: Read
 metadata:
-  version: "0.4.2"
+  version: "0.4.3"
 ---
 
 # Humanize Sepia
