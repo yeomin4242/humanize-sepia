@@ -4,7 +4,7 @@
 
 **A skill for writing and editing Korean from experiences, notes, and drafts.** It helps select relevant material and organize it for your reader while working within your facts and voice. Use it for job applications, business emails, reports, proposals, and research plans.
 
-Version **0.4.3** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
+Version **0.4.4** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
 
 ## What you can request
 
@@ -32,6 +32,8 @@ For job applications, the focus is on what the question is trying to assess, sup
 
 Research guidance focuses on the relationship between questions, evidence, and limitations rather than fixed sentence counts. Version 0.4.3 clarifies the timing of presenting materials and asking questions, and avoids deciding ambiguous timing without evidence. For experience-and-learning questions with no required order, it offers an example that places the lesson at the decision change and ends with a confirmed result. Review guidance distinguishes unsupported role or outcome claims from optional wording suggestions.
 
+Version 0.4.4 adds brief model-specific prompt notes for Gemini 3.8 Flash and Gemini 4 Argon, based on Google's prompt guidance and published model behavior. These notes adjust how instructions are framed; they do not establish improved writing quality.
+
 Application character counts and byte counts are distinct; the destination’s counting rules take priority. Instructions discourage padding with invented facts or empty promises. Exact length checks depend on the tools available in the host.
 
 ## Current evidence and limitations
@@ -47,13 +49,13 @@ Model-specific writing gains and lower latency are not established features. Exp
 Ask Codex to install the pinned version:
 
 ```text
-$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.4.3/skills/humanize-sepia
+$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.4.4/skills/humanize-sepia
 ```
 
 For a manual installation, clone the repository and copy the skill folder:
 
 ```bash
-git clone --branch v0.4.3 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
+git clone --branch v0.4.4 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
 mkdir -p ~/.agents/skills
 cp -R humanize-sepia/skills/humanize-sepia ~/.agents/skills/
 ```

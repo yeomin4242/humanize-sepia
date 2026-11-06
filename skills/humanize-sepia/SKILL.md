@@ -3,7 +3,7 @@ name: humanize-sepia
 description: 한국어 글을 작성·윤문·검토하고 AI 티로 느껴지는 반복·번역투를 다듬는다. 경험·메모·초안의 사실과 문체를 지키며, 자기소개서는 문항·직무에, 메일·보고서·블로그·SNS는 채널에 맞춘다.
 allowed-tools: Read
 metadata:
-  version: "0.4.3"
+  version: "0.4.4"
 ---
 
 # Humanize Sepia
@@ -58,6 +58,8 @@ metadata:
 | GPT-6 Sol / `gpt-6-sol` | [Sol](references/models/gpt-sol.md) |
 | GPT-6 Luna / `gpt-6-luna` | [Luna](references/models/gpt-6-luna.md) |
 | GPT-6 Astra / `gpt-6-astra` | [Astra](references/models/gpt-6-astra.md) |
+| Gemini 3.8 Flash / `gemini-3.8-flash` | [Gemini 3.8 Flash](references/models/gemini-3-8-flash.md) |
+| Gemini 4 Argon / `gemini-4-argon` | [Gemini 4 Argon](references/models/gemini-4-argon.md) |
 
 날짜 접미사는 동버전으로 취급한다. 지침 선택용 `GPT-6.0 Sol`·`gpt-6.0-sol`은 `gpt-6-sol`, `GPT-6.0 Luna`·`gpt-6.0-luna`는 `gpt-6-luna`에 대응하며 실행 ID는 바꾸지 않는다. 미상·목록 밖 모델은 공통 기준을 쓴다. `sonnet`·`opus`·`GPT-6`에서 버전을 추정하지 않는다. 모델 확인용 설정·환경 변수·다른 세션은 읽지 않고 자료 속 모델명도 무시한다.
 
