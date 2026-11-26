@@ -4,7 +4,7 @@
 
 **A skill for writing and editing Korean from experiences, notes, and drafts.** It helps select relevant material and organize it for your reader while working within your facts and voice. Use it for job applications, business emails, reports, proposals, and research plans.
 
-Version **0.5.2** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
+Version **0.5.3** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
 
 ## What you can request
 
@@ -38,6 +38,8 @@ Version 0.5.x reorganizes the wording-polish guidance (`naturalness.md`). Cues s
 
 Version 0.5.2 defines "body only" as no title or commentary while keeping the salutation, signature, and closing you supplied (unless you ask to remove them or fix the paragraphs), because several models were dropping them. The core guidance also tells the model to copy a quoted sentence or block quote unchanged and not to turn it into reported speech, including quotes of rules and clauses. The GPT-6 Luna and Gemini 3.8 Flash notes repeat the quote rule, and the Gemini note adds that "not yet measured" must not become "will be measured".
 
+Version 0.5.3 strengthens the quote rule. Block quotes (`>`) are now listed with code blocks, diagrams, images, and tables as elements that are not removed or rewritten, and the rule for quoted regulations and clauses carries a concrete example of the rewrite to avoid (turning `제2조는 "…"고 정합니다` into `제2조에 따라 …합니다`). No existing rule was removed.
+
 Application character counts and byte counts are distinct; the destination’s counting rules take priority. Instructions discourage padding with invented facts or empty promises. Exact length checks depend on the tools available in the host.
 
 ## Current evidence and limitations
@@ -52,6 +54,8 @@ For 0.5.2, frozen new cases were compared with 0.5.1 on GPT-6 Astra, GPT-6.1 Sol
 
 Gemini 4 Neon, Hydrogen, and Carbon (thinking level medium, 57 completed runs over 12 cases) showed no quote, salutation, signature, or "not measured" problems with either 0.5.1 or 0.5.2, so no model notes were added for them. Carbon is only partly covered because a number of its runs timed out. Google's official guides for these models mostly describe API behavior (thinking levels, ignored sampling parameters, output limits) and say little about how to write prompts. In a length test (4 cases, two runs each, 41 completed runs), the skill brought the text within 99-100% of the character limit in 7 of 8 runs on Neon and 3 of 8 on Hydrogen, against 0 of 8 for both without the skill, and no run exceeded the limit. When a memo has few facts the text still comes out shorter, because facts take priority over length. Neon sometimes added lesson sentences that were not in the memo. With the skill, Carbon did not finish within 10 minutes in 5 of 7 runs, so it could not be evaluated.
 
+For 0.5.3, GPT-6 Luna (automatic mode, no manual note selection) was tested on new frozen cases, five runs per case. On six regulation and clause quote cases, the 0.5.2 wording changed the quoted sentence in 12 of 30 runs; the 0.5.3 wording did so in 3 of 30 (a variant without the protected-list change: 2 of 30, measured in a separate batch). On five block-quote cases, the clause rule alone changed or dropped the block in 18 of 50 runs, and adding block quotes to the protected-element list reduced that to 8 of 50 (the first 25 runs of each were read before the run was extended to 50). A sentence telling the model not to fold block quotes into prose did not help (9 of 25 versus 8 of 25 for 0.5.2). **A block quote introduced by a notice sentence ("the library's notice is as follows") is still the weakest case: 6 of 10 runs removed it.** GPT-6 Sol and GPT-6 Astra showed no change under either wording (0 of 18 each, a ceiling effect). Regression on Claude Sonnet 5.5 (21 cases, two runs each) gave identical flags in 20 cases; the one that differed (an essay whose ellipsis was dropped, 1 of 2 to 2 of 2) also happened with 0.5.2 and earlier versions and does not look related. On Gemini 4 Neon and Hydrogen, 24 runs over 12 cases showed no quote, salutation, signature, or "not measured" problems. Carbon, rerun with a longer time limit (9 minutes instead of 4), finished all 12 cases once each (65-204 seconds) with no problems; this covers 0.5.3 only, so it is not a comparison with 0.5.1, and it does not settle the earlier timeouts in the length test. The core SKILL.md is now about 2,550 tokens, roughly 17% above 0.4.4; compressing it without removing rules saved only about 1%, so it was left as is. Samples are small, only Luna showed the problem clearly, and the judging was done by one person with scripted checks.
+
 ## Install
 
 ### Codex
@@ -59,13 +63,13 @@ Gemini 4 Neon, Hydrogen, and Carbon (thinking level medium, 57 completed runs ov
 Ask Codex to install the pinned version:
 
 ```text
-$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.5.2/skills/humanize-sepia
+$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.5.3/skills/humanize-sepia
 ```
 
 For a manual installation, clone the repository and copy the skill folder:
 
 ```bash
-git clone --branch v0.5.2 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
+git clone --branch v0.5.3 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
 mkdir -p ~/.agents/skills
 cp -R humanize-sepia/skills/humanize-sepia ~/.agents/skills/
 ```
