@@ -4,7 +4,7 @@
 
 **A skill for writing and editing Korean from experiences, notes, and drafts.** It helps select relevant material and organize it for your reader while working within your facts and voice. Use it for job applications, business emails, reports, proposals, and research plans.
 
-Version **0.5.1** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
+Version **0.5.2** · Codex / Claude Code · Instructions and examples are primarily Korean. The skill is contained in `skills/humanize-sepia`.
 
 ## What you can request
 
@@ -34,7 +34,9 @@ Research guidance focuses on the relationship between questions, evidence, and l
 
 Version 0.4.4 adds brief model-specific prompt notes for Gemini 3.8 Flash and Gemini 4 Argon, based on Google's prompt guidance and published model behavior. These notes adjust how instructions are framed; they do not establish improved writing quality.
 
-Version 0.5.x reorganizes the wording-polish guidance (`naturalness.md`). Cues such as empty evaluative words, boilerplate conclusions, translationese, and emotional clichés are used to find places to edit, not as a detector. A fix replaces the filler with a concrete fact from your material or removes only that sentence. The guidance avoids inventing later actions or habits, and it keeps salutations, signatures, bullet items, numbered lists, and intentional marks such as dashes and ellipses. When you ask for body text only, it adds no change notes or requests for more material after the body. It also adds a personal-essay default and notes on channel-specific boilerplate. A rule now states that code blocks, diagrams such as Mermaid, images, tables, and figure captions are not removed or rewritten during polishing; the effect of this rule has not yet been tested with the models.
+Version 0.5.x reorganizes the wording-polish guidance (`naturalness.md`). Cues such as empty evaluative words, boilerplate conclusions, translationese, and emotional clichés are used to find places to edit, not as a detector. A fix replaces the filler with a concrete fact from your material or removes only that sentence. The guidance avoids inventing later actions or habits, and it keeps salutations, signatures, bullet items, numbered lists, and intentional marks such as dashes and ellipses. When you ask for body text only, it adds no change notes or requests for more material after the body. It also adds a personal-essay default and notes on channel-specific boilerplate. A rule now states that code blocks, diagrams such as Mermaid, images, tables, and figure captions are not removed or rewritten during polishing. It was added after an issue report; a 54-run reproduction across seven models did not show any diagram being deleted, so its effect is not established.
+
+Version 0.5.2 defines "body only" as no title or commentary while keeping the salutation, signature, and closing you supplied (unless you ask to remove them or fix the paragraphs), because several models were dropping them. The core guidance also tells the model to copy a quoted sentence or block quote unchanged and not to turn it into reported speech, including quotes of rules and clauses. The GPT-6 Luna and Gemini 3.8 Flash notes repeat the quote rule, and the Gemini note adds that "not yet measured" must not become "will be measured".
 
 Application character counts and byte counts are distinct; the destination’s counting rules take priority. Instructions discourage padding with invented facts or empty promises. Exact length checks depend on the tools available in the host.
 
@@ -46,6 +48,8 @@ Model-specific writing gains and lower latency are not established features. Exp
 
 The 0.5.x wording-polish changes were checked only on a subset of fictional cases (one or two runs per case, judged manually by one person) with Claude Sonnet 5.5, Opus 5.5, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, and Gemini 3.8 Flash (the model note was selected manually). Invented actions, notes after the body, and deleted salutations, signatures, or items occurred less often in those runs, but this is not a statistical conclusion, and it did not establish better writing than the model without the skill or version 0.4.4. With the GPT models no difference from 0.4.4 was visible, and some models turned direct quotations into reported speech, dropped salutations and signatures, or removed a "not measured" sentence under both 0.4.4 and 0.5.x. Gemini 3.8 Flash showed fewer problems (4 of 12 samples versus 8), but the sample is too small to conclude anything. The Gemini 4 Argon note was not tested. Boilerplate can remain.
 
+For 0.5.2, frozen new cases were compared with 0.5.1 on GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, and GPT-6 Luna; Gemini 3.8 Flash is covered only in part. With a body-only request, dropped salutations and signatures fell from 5 of 27 runs to 1 of 27 on the three GPT models checked (GPT-6.1 Sol: 4 of 9 to 0 of 9; the prompts differed slightly between the two measurements). GPT-6 Luna rarely reads the editing notes; on new cases the share of its runs that changed a quoted sentence fell from 14 of 15 to 3 of 15 (all three were rule or clause quotes; measured before one final clause sentence was added), and quotes of rules and clauses stayed the weakest type (3 of 15 runs on a separate clause-only set). Regression checks on Claude Sonnet 5.5 and Opus 5.5 showed no new problems. **Limits:** the model-specific notes are read only when the host reports the model name; in a Codex test without it, GPT-6 Luna read none of them, so the core rules carry the fix. The Gemini changes could not be fully re-checked because of a usage quota. The core SKILL.md grew to about 2,500 tokens, roughly 15% above 0.4.4. Samples are small (mostly three runs per case) and the judging was done by one person with scripted checks.
+
 ## Install
 
 ### Codex
@@ -53,13 +57,13 @@ The 0.5.x wording-polish changes were checked only on a subset of fictional case
 Ask Codex to install the pinned version:
 
 ```text
-$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.5.1/skills/humanize-sepia
+$skill-installer https://github.com/yeomin4242/humanize-sepia/tree/v0.5.2/skills/humanize-sepia
 ```
 
 For a manual installation, clone the repository and copy the skill folder:
 
 ```bash
-git clone --branch v0.5.1 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
+git clone --branch v0.5.2 --depth 1 https://github.com/yeomin4242/humanize-sepia.git
 mkdir -p ~/.agents/skills
 cp -R humanize-sepia/skills/humanize-sepia ~/.agents/skills/
 ```
